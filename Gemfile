@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'bootstrap-sass'
 gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'newrelic_rpm'
