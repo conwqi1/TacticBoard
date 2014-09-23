@@ -1,7 +1,7 @@
 <h2>Sign Up</h2>
 
 <form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <%= auth_token_input %>
   
   <label for="user_emal">email</label>
   <input type="text" class="user[email]" id="user_emal">
@@ -9,5 +9,5 @@
   <label for="user_password">password</label>
   <input type="text" class="user[password]" id="user_password">
   
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Sign Up"  class="btn btn-primary">
 </form>
