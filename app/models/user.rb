@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 5, allow_nil: true}
   validates :email, uniqueness: true
   
-  has_many: boards
+  has_many :boards
   
   attr_reader :password
   after_initialize :ensure_session_token
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     user.try(:is_password?, user_params[:password] ? user : nil)
   end
   
-  def password = (password)
+  def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end

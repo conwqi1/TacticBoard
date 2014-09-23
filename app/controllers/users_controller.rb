@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   
   def new
-    
   end
   
   def create
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      render: new
+      render :new
     end
   end
   

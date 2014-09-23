@@ -1,5 +1,5 @@
 TrelloVideo::Application.routes.draw do
-  root to: "static_pages/#root"
+  root to: "static_pages#root"
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   
