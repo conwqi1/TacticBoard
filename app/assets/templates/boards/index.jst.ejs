@@ -7,7 +7,9 @@
     <li>
       <a href="#/boards/<%= board.id %>">
         <span class='shadow'></span>
-        <span class='details'>        
+        <span class='details'> 
+         <button type="button" class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+         </button>       
           <%= board.escape("title") %>
         </span>
       </a>
@@ -26,20 +28,21 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title" id="myModalLabel">New Board</h4>
         </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-3 col-xs-offset-1">
-               <lable for="board_title">Title:</label>
-            </div>
-            <div class="col-xs-9">
-              <input type="text" name="board[title]" id="board_title">
+        <form id="createBoard">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-2">
+                 <lable for="board_title">Title:</label>
+              </div>
+              <div class="col-xs-10">
+                <input class="col-xs-10" type="text" name="board[title]" id="board_title">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Create</button>
-        </div>
+          <div class="modal-footer">
+            <input type="submit" value="create" id="creat_board">
+          </div>
+        </form>
       </div>
     </div>
   </div>
