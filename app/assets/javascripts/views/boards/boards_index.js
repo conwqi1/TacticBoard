@@ -19,7 +19,7 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   },
   
   events: {"submit .myform": "addBoard",
-"click #delete_board":"deleteBoard"},
+           "click #delete_board":"deleteBoard"},
   
   addBoard: function(event){
     event.preventDefault();
@@ -34,9 +34,9 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   deleteBoard: function(event){
     event.preventDefault();
     var $target = $(event.currentTarget); 
-    var boardId = $target.data('id');
-    this.model = this.collection.get('boardId');
-    this.model.destroy();
+    var id = $target.data('id');
+    var model = this.collection.get(id);
+    model.destroy();
   },    
    
 
