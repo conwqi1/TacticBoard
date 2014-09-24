@@ -5,7 +5,7 @@ TrelloVideo.Collections.Boards = Backbone.Collection.extend({
   getOrFetch: function(id){
     var board = this.get(id);
     if(!board){
-      board = new TrelloClone.Model.Board({id: id});
+      board = new TrelloVideo.Models.Board({id: id});
       board.fetch({
         success: function(){
           this.add(board);
