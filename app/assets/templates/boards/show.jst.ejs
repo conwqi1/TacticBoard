@@ -2,10 +2,13 @@
   <h4><%= board.escape('title') %></h4>
 </div>
 
-<div class='lists-window'>
-  <div id="lists">
+<div class="show-lists">
+  <% board.lists().each(function(list){ %>
+    
+    <% list.escape("title") %>
+    
+  <% }) %>
 </div>
 
-  <div id="list-form">
-  </div>
-</div>
+
+  

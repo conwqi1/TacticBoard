@@ -7,6 +7,12 @@ TrelloVideo.Views.BoardShow = Backbone.View.extend({
     });
     this.$el.html(content);
     return this;
-  }
+  },
+  
+  addList: function(){
+    
+  },
+  
+  
   
 });
