@@ -1,7 +1,14 @@
-TrelloVideo.Views.BoardIndex = Backbone.View.extend({
+TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   template: JST['boards/index'],
   
   //add initialize in future to render more css
+  className: 'boards-index',
+  
+  initialize: function(){
+    this.listenTo(this.collection, 'sync', this.render);
+    // $('body').css('background-color', 'rgb(255, 255, 255)')
+  },
+  
   
   render: function(){
     var content = this.template({

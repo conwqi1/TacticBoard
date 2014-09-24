@@ -1,6 +1,6 @@
 TrelloVideo.Routers.Router = Backbone.Router.extend({
-  initilize: function(options){
-    this.$rootEl = options.$rootEl
+  initilize: function(){
+    this.$rootEl = $('#main')
   },
   
   routes: {
