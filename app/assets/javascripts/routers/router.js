@@ -9,19 +9,19 @@ TrelloVideo.Routers.Router = Backbone.Router.extend({
   },
   
   boardsIndex: function(){
-    TrelloClone.Collections.boards.fetch();
-
-    var view = new TrelloClone.Views.BoardsIndex({
-      collection: TrelloClone.Collections.boards
+    var collection = TrelloVideo.Collections.boards;
+    collection.fetch();
+    var view = new TrelloVideo.Views.BoardsIndex({
+      collection: TrelloVideo.Collections.boards
     });
 
     this._swapView(view);
   },
   
   boardShow: function(){
-    var board = TrelloClone.Collections.boards.getOrFetch(id);
+    var board = TrelloVideo.Collections.boards.getOrFetch(id);
 
-    var view = new TrelloClone.Views.BoardShow({
+    var view = new TrelloVideo.Views.BoardShow({
       model: board
     });
 
@@ -30,7 +30,7 @@ TrelloVideo.Routers.Router = Backbone.Router.extend({
   
   _swapView: function(view){
    this._currentView && this._currentView.remove();
-   this.currentView = view; 
+   this._currentView = view; 
    this.$rootEl.html(view.render().$el);
   }
 });

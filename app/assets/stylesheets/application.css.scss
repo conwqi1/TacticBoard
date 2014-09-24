@@ -17,3 +17,37 @@
 @import "bootstrap-sprockets";
 
 @import "bootstrap";
+
+.col-xs-12 {
+  padding-top: 2%;
+}
+
+.row {
+  height: 400px;
+}
+
+#introduction {
+  background-color: #ecf4f9;
+};
+
+#board_guidiance {
+  background-color: white;
+};
+
+
+#introduction_footer {
+  background-color: #45a6de;
+};
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 200%;
+};
+
+section {
+  font-size: 150%;  
+};
+
+
+

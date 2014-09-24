@@ -3,12 +3,13 @@ window.TrelloVideo = {
   Collections: {},
   Views: {},
   Routers: {},
-  Utils: {};
+  Utils: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new TrelloVideo.Routers.Router
+    Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  TrelloVideo.initialize();
-});
+// $(document).ready(function(){
+//   TrelloVideo.initialize();
+// });
