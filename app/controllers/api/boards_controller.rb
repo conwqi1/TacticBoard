@@ -1,4 +1,4 @@
- class Api::BoardsController < ApiController
+ class Api::BoardsController < Api::ApiController
     def create
       @board = current_user.boards.new(board_params)
       

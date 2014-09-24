@@ -5,7 +5,7 @@ window.TrelloVideo = {
   Routers: {},
   Utils: {},
   initialize: function() {
-    new TrelloVideo.Routers.Router
+    new TrelloVideo.Routers.Router({$root: $('#main')})
     Backbone.history.start();
   }
 };
