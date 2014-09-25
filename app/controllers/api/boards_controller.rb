@@ -21,7 +21,7 @@
     end
     
     def show
-      @board = Board.includes(:members, lists: :cards).find(params[:id])
+      @board = Board.find(params[:id])
       render :show
     end
   

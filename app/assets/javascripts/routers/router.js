@@ -14,13 +14,11 @@ TrelloVideo.Routers.Router = Backbone.Router.extend({
     var view = new TrelloVideo.Views.BoardsIndex({
       collection: TrelloVideo.Collections.boards
     });
-
     this._swapView(view);
   },
   
-  boardShow: function(){
+  boardShow: function(id){
     var board = TrelloVideo.Collections.boards.getOrFetch(id);
-
     var view = new TrelloVideo.Views.BoardShow({
       model: board
     });

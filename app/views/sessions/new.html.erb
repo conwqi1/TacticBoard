@@ -1,13 +1,23 @@
-<h2>Sign In</h2>
+<div class="SignOn">
+  <div class="row">
+    <div class= "col-xs-6 col-xs-offset-3">
+      <h2>Welcome back to TrelloVieo</h2>
+    </div>
+  </div>
 
-<form action="/session" method="post">
-  <%= auth_token_input %>
+  <div class="row">
+    <div class= "col-xs-6 col-xs-offset-3">
+      <form action="/session" method="post">
+        <%= auth_token_input %>
   
-  <label for="user_emal">email</label>
-  <input type="text" name="user[email]" id="user_emal">
+        <label for="user_emal">Email:</label><br>
+        <input type="text" name="user[email]" id="user_emal"><br>
   
-  <label for="user_password">password</label>
-  <input type="password" name="user[password]" id="user_password">
-  
-  <input type="submit" value="Sign In" class="btn btn-primary">
-</form>
+        <label for="user_password">Password:</label><br>
+        <input type="password" name="user[password]" id="user_password"><br>
+        <br>
+        <input type="submit" value="Sign In" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>

@@ -6,10 +6,10 @@ window.TrelloVideo = {
   Utils: {},
   initialize: function() {
     new TrelloVideo.Routers.Router({$root: $('#main')})
-    Backbone.history.start();
+    if (!Backbone.History.started){
+      Backbone.history.start();
+    }
   }
 };
 
-// $(document).ready(function(){
-//   TrelloVideo.initialize();
-// });
+

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap 
+//= require typeahead
 //= require underscore
 //= require backbone
 //= require trello_video
