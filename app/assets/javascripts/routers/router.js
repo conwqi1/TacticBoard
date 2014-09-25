@@ -19,6 +19,7 @@ TrelloVideo.Routers.Router = Backbone.Router.extend({
   
   boardShow: function(id){
     var board = TrelloVideo.Collections.boards.getOrFetch(id);
+
     var view = new TrelloVideo.Views.BoardShow({
       model: board
     });

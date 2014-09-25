@@ -8,6 +8,6 @@
 
 guest = User.create(email: 'guest@gamil.com', password: 'password')
 guestBoard1 = guest.boards.create(title: 'ToDo')
-guestBoard1 = guest.boards.create(title: 'Urgent')
+guestBoard2 = guest.boards.create(title: 'Urgent')
 guestBoardList1 = guestBoard1.lists.create(title: 'Laundry')
-guestBoardList1 = guestBgoard1.lists.create(title: 'Pay Rent')
+guestBoardList2 = guestBoard1.lists.create(title: 'Pay Rent')
