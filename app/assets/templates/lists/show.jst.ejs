@@ -1,5 +1,8 @@
 <div class=" " data-list-id="<%= list.id %>">
   <h4><%= list.escape('title') %></h4>
+  
+  <button class="close" id="delete_list" data-id="<%= list.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
 </div>
 
 <div class="list-cards">

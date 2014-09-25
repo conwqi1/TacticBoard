@@ -8,25 +8,31 @@
       <a href="#/boards/<%= board.id %>">
         <span class='shadow'></span>
         <span class='details'> 
-         <button type="button" class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+         <button class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
          </button>       
           <%= board.escape("title") %>
         </span>
       </a>
     </li>
   <% }); %>
-  
+</ul>
   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Add Board
   </button>
 
   
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">New Board</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">New Board</h4>
         </div>
         <form class="myform">
           <div class="modal-body">
@@ -35,7 +41,12 @@
                  <lable for="board_title">Title:</label>
               </div>
               <div class="col-xs-10">
-                <input class="col-xs-10" type="text" name="board[title]" id="board_title">
+                <input 
+                  class="col-xs-10" 
+                  type="text" 
+                  name="board[title]" 
+                  autofocus
+                  id="board_title">
               </div>
             </div>
           </div>
@@ -46,6 +57,3 @@
       </div>
     </div>
   </div>
-</ul>
-
-

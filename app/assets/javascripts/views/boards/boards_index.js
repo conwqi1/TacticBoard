@@ -23,11 +23,12 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   
   addBoard: function(event){
     event.preventDefault();
+    event.stopPropagation();
     var $target = $(event.currentTarget); 
     var title = $target.find('#board_title').val();
-    var model = new TrelloVideo.Models.Board({title: title});
-    this.collection.create(model)
-    Backbone.history.navigate("", { trigger: true });
+    this.collection.create({
+      title: title
+     });
   },
   
   
