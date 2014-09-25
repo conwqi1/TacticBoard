@@ -9,7 +9,6 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
     this.listenTo(this.collection, 'sync add destroy', this.render);
   },
   
-  
   render: function(){
     var renderContent = this.template({
       boards: this.collection
@@ -30,7 +29,6 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
       title: title
      });
   },
-  
   
   deleteBoard: function(event){
     event.preventDefault();

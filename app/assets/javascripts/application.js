@@ -17,6 +17,7 @@
 //= require typeahead
 //= require underscore
 //= require backbone
+//= backbone.modal-min.js
 //= require trello_video
 //= require_tree ../templates
 //= require_tree ./utils

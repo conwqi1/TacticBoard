@@ -24,7 +24,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   //       return subview.model ==== card;
   //     }
   //   );
-  //   this.removeSubview(".list-cards",view)
+  //   this.removeSubview(".list-cards",subview)
   // },
   
   render: function(){
