@@ -11,7 +11,9 @@ class Api::CardsController < Api::ApiController
    end
    
    def destroy
-     
+     @card = Card.find(params[:id])
+     @card.destroy
+     render json: {}
    end
 
    def update
