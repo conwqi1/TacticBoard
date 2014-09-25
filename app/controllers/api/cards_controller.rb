@@ -1,5 +1,5 @@
 class Api::CardsController < Api::ApiController
-  before_action :require_board_member!
+  # before_action :require_board_member!
    def create
      @card = current_list.cards.new(card_params)
 
@@ -8,6 +8,10 @@ class Api::CardsController < Api::ApiController
      else
        render json: @card.errors.full_messages, status: :unprocessable_entity
      end
+   end
+   
+   def destroy
+     
    end
 
    def update

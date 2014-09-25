@@ -39,12 +39,12 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
   },
   
   removeList: function(list){
-    var subview = _.find( 
+    var view = _.find( 
       this.subviews("#lists"),
-      function(subview){
-        return subview.model === list;
+      function(view){
+        return view.model === list;
       });
-    this.removeSubview("#lists", subview)
+    this.removeSubview("#lists", view)
   },
   
   render: function(){

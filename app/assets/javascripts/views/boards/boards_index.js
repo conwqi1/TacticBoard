@@ -17,7 +17,7 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
     return this;
   },
   
-  events: {"submit .myform": "addBoard",
+  events: {"submit #createBoard": "addBoard",
            "click #delete_board":"deleteBoard"},
   
   addBoard: function(event){

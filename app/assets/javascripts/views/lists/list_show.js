@@ -10,6 +10,30 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'remove', this.removeCard);
   },
   
+  events: {"submit #createCard":"createCard",
+            "click #deleteCard":"deleteCard"},
+  
+  createCard: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    var title = $target.find('#card_title').val();
+    var description = $target.find('#card_description').val();
+    var listId = $target.data('id')
+    this.collection.create({
+      list_id: listId,
+      title: title,
+      description: description
+    });
+  },
+  
+  deleteCard: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget); 
+    var id = $target.data('id');
+    var model = this.collection.get(id);
+    model.destroy();
+  },
+  
   addCard: function(card){
     var view = new TrelloVideo.Views.CardShow({
       model: card
@@ -17,15 +41,14 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     this.addSubview('.list-cards', view);
   },
 
-  // removeCard: function(card){
-  //   var subview = _.find(
-  //     this.subviews(".list-cards")
-  //     function(subview){
-  //       return subview.model ==== card;
-  //     }
-  //   );
-  //   this.removeSubview(".list-cards",subview)
-  // },
+  removeCard: function(list){
+    var view = _.find( 
+      this.subviews(".list-cards"),
+      function(view){
+        return view.model === list;
+      });
+    this.removeSubview(".list-cards", view)
+  },
   
   render: function(){
     var renderContent = this.template({
