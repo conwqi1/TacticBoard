@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-guest = User.create(email: 'guest@gamil.com', password: 'password')
+guest = User.create(email: 'guest@gmail.com', password: 'password')
 guestBoard1 = guest.boards.create(title: 'ToDo')
 guestBoard2 = guest.boards.create(title: 'Urgent')
 guestBoardList1 = guestBoard1.lists.create(title: 'Laundry')

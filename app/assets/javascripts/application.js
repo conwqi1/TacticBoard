@@ -25,3 +25,11 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+$(function(){
+  $("#sign_in_as_guest").on('click', function(){
+    $('#user_email').val('guest@gmail.com');
+    $('#user_password').val('password');
+  });
+});
+
