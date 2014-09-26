@@ -1,0 +1,32 @@
+<!--checklist show template -->
+
+<div class="checklist_block">
+    <%= checklist.escape('title') %>
+    <%= checklist.escape('id') %>
+    <button class="close deleteCheckList" data-id="<%= checklist.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        0%
+      </div>
+    </div>
+    
+    
+    <ul class="checklist-items">
+    <!--all item subviews goes here -->
+    </ul>
+    
+    
+    <form>
+      <div class="row">
+        <div class="col-xs-8">
+          <input type="text" name="items[:title]">
+        </div>
+        <div class="col-xs-4">
+          <input type="submit" value="Add Item">
+        </div>
+      </div>
+    </form>
+</div>
+

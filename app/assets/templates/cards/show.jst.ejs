@@ -1,6 +1,7 @@
+<!--card show template -->
 <div class="panel panel-default card_block">
   <div class="panel-body">
-    <a href="#" data-toggle="modal" data-target="#cardButton<%= card.id %>">
+    <a href="#" class="card_link" data-toggle="modal" data-target="#showItems<%= card.id %>">
       <%= card.escape('title') %>
     </a>
     <button class="close" id="deleteCard" data-id="<%= card.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -10,7 +11,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="cardButton<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="showItems<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
 <!--header starts here -->
@@ -19,6 +20,10 @@
           <h4 class="modal-title" id="myModalLabel">
             <%= card.escape('title') %>
           </h4>
+          <div class="duedate_container">
+             <!-- the duedate subview goes in here-->
+             duedate shows here
+          </div>
         </div> 
 <!--header ends here -->
       <div class="row">
@@ -36,15 +41,9 @@
             </div>
           
             <div class="row">
-              <div class="col-xs-7 dueDate">
-                 <!--dueDate shold go here -->
-              </div>
-            </div>
-          
-            <div class="row">
-              <div class="col-xs-7 items">
+              <ul class="col-xs-7 checklists-container">
                  <!--check list items shold go here -->
-              </div>
+              </ul>
             </div>
           
           </div>
@@ -54,9 +53,15 @@
 <!--Right side bar page starts here -->
        <div class="col-xs-3">
           <div class="modal-sidebar">
-            <button type="button" class="btn btn-default" id="create_checklist">Due Date</button>
-            <button type="button" class="btn btn-default" id="create_dueDate">Checklist</button>
-            <button type="button" class="btn btn-default" id="add_member">Members</button>
+            <button type="button" data-id="<%= card.id %>" class="btn btn-default create_duedate">
+              Due Date
+            </button>
+            <button type="button" data-id="<%= card.id %>" class="btn btn-default create_checklist">
+              Checklist
+            </button>
+            <button type="button" data-id="<%= card.id %>" class="btn btn-default add_member">
+              Members
+            </button>
           </div>
       </div>
 <!--Right side bar page ends here -->
@@ -64,3 +69,9 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+

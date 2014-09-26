@@ -1,17 +1,17 @@
 TrelloVideo.Models.Card = Backbone.Model.extend({
   urlRoot: '/api/cards',
 
-  items: function () {
-    if(!this._items) {
-      this._items = new TrelloVideo.Collections.Items([], { card: this });
+  checklists: function () {
+    if(!this._checklists) {
+      this._checklists = new TrelloVideo.Collections.Checklists([], {card: this });
     }
-    return this._items;
+    return this._checklists;
   },
 
   parse: function (response) {
-    if(response.items) {
-      this.items().set(response.items, { parse: true });
-      delete response.items;
+    if(response.checklists) {
+      this.checklists().set(response.checklists, { parse: true });
+      delete response.checklists;
     }
     return response;
   }
