@@ -1,6 +1,7 @@
 TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
   tagName: 'li',
   initialize: function(){
+    this.collection = this.model.items();
     this.listenTo(this.model, 'sync', this.render);
   },
 
@@ -12,10 +13,8 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderContent);
     return this;
-  },
-  
+  }, 
 });
-
 
 
 

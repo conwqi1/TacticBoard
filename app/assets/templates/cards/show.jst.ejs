@@ -13,38 +13,54 @@
 <div class="modal fade" id="cardButton<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+<!--header starts here -->
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">New Card</h4>
+          <h4 class="modal-title" id="myModalLabel">
+            <%= card.escape('title') %>
+          </h4>
         </div> 
+<!--header ends here -->
+      <div class="row">
+<!--left main index page starts here -->
+        <div class="col-xs-9">
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-xs-2">
+                <lable for="board_title">Description:</label>
+              </div>
+              <div class="col-xs-7">
+                <section><%= card.escape('description') %></section>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-xs-7 dueDate">
+                 <!--dueDate shold go here -->
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-xs-7 items">
+                 <!--check list items shold go here -->
+              </div>
+            </div>
+          
+          </div>
+       </div>
+<!--left main index page ends here -->
         
-      <form id="createCard" data-id="<%= card.escape('id') %>">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-2">
-              <lable for="board_title">Title:</label>
-            </div>
-            <div class="col-xs-10">
-              <input type="text" name="card[title]" id="card_title">
-            </div>
+<!--Right side bar page starts here -->
+       <div class="col-xs-3">
+          <div class="modal-sidebar">
+            <button type="button" class="btn btn-default" id="create_checklist">Due Date</button>
+            <button type="button" class="btn btn-default" id="create_dueDate">Checklist</button>
+            <button type="button" class="btn btn-default" id="add_member">Members</button>
           </div>
-          <br>
-
-          <div class="row">
-            <div class="col-xs-2">
-              <lable for="board_title">Description:</label>
-            </div>
-            <div class="col-xs-10">
-              <textarea class="col-xs-10" name="card[description]" id="card_description"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <input type="submit" value="create" id="create_card">
-        </div>
-      </form>
-
+      </div>
+<!--Right side bar page ends here -->
+      </div>
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923201507) do
+ActiveRecord::Schema.define(version: 20140926173814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,21 +48,33 @@ ActiveRecord::Schema.define(version: 20140923201507) do
     t.integer  "list_id",                   null: false
     t.text     "description"
     t.float    "ord",         default: 0.0
+    t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "cards", ["list_id"], name: "index_cards_on_list_id", using: :btree
 
-  create_table "items", force: true do |t|
-    t.string   "title",                      null: false
-    t.integer  "card_id",                    null: false
-    t.boolean  "done",       default: false
+  create_table "checklists", force: true do |t|
+    t.string   "title",                    null: false
+    t.integer  "card_id",                  null: false
+    t.float    "ord",        default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "items", ["card_id"], name: "index_items_on_card_id", using: :btree
+  add_index "checklists", ["card_id"], name: "index_checklists_on_card_id", using: :btree
+
+  create_table "items", force: true do |t|
+    t.string   "title",                        null: false
+    t.integer  "checklist_id",                 null: false
+    t.boolean  "done",         default: false
+    t.float    "ord",          default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["checklist_id"], name: "index_items_on_checklist_id", using: :btree
 
   create_table "lists", force: true do |t|
     t.string   "title",                    null: false

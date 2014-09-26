@@ -3,6 +3,6 @@ TrelloVideo.Collections.Items = Backbone.Collection.extend({
   url: '/api/items',
   
   initialize: function(models, options){
-    this.card = options.card;
+    this.checklist = options.checklist;
   }
 });

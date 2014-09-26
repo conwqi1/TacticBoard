@@ -1,4 +1,4 @@
-TrelloVideo.Views.ItemsIndex = Backbone.View.extend({
+TrelloVideo.Views.ItemsIndex = Backbone.CompositeView.extend({
   template: JST['items/index'],
   
   initialize: function(){
@@ -12,5 +12,7 @@ TrelloVideo.Views.ItemsIndex = Backbone.View.extend({
     });
     this.$el.html(renderContent);
     return this;
-  }
+  },
+  
+
 });

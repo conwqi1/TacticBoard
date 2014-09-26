@@ -19,6 +19,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     var title = $target.find('#card_title').val();
     var description = $target.find('#card_description').val();
     var listId = $target.data('id')
+    var ord = $target.data.cards().length
     this.collection.create({
       list_id: listId,
       title: title,
