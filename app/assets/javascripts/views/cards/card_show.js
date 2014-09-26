@@ -1,4 +1,5 @@
 TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
+  tagName: 'li',
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render);
   },

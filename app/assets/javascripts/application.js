@@ -19,6 +19,8 @@
 //= require backbone
 //= backbone.modal-min.js
 //= require trello_video
+//= require jquery-ui/draggable
+//= require jquery-ui/sortable
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
@@ -33,4 +35,14 @@ $(function(){
     $('#user_password').val('password');
   });
 });
+
+$(function(){
+  $('#card_block').sortable();
+});
+
+// $(function(){
+//   $('').sortable({
+//
+//   });
+// });
 

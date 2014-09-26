@@ -1,13 +1,14 @@
-<div class=" " data-list-id="<%= list.id %>">
+<div id="list_block">
+<div data-list-id="<%= list.id %>">
   <h4><%= list.escape('title') %></h4>
 <!--delete list button starts here -->
   <button class="close" id="delete_list" data-id="<%= list.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
   </button>
 </div>
 
-<div class="list-cards">
+<ul class="list-cards">
 <!--all subviews goes here -->
-</div>
+</ul>
 
 <!--add card button starts here-->
   
@@ -56,3 +57,4 @@
   </div>
 </div>
 <!--Modal ends here -->
+</div>
