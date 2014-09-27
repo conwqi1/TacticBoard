@@ -1,5 +1,5 @@
 TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
-  tagName: 'li',
+  // tagName: 'li',
   initialize: function(){
     this.collection = this.model.checklists();
     this.collection.each(this.addChecklist.bind(this));
@@ -57,8 +57,6 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderContent);
     this.attachSubviews();
-    this.$('.checklists-container').sortable();
-    this.$('.checklists-container').disableSelection();
     return this;
   }, 
 });

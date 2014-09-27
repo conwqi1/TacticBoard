@@ -96,16 +96,14 @@ ul {
   list-style: none;
 };
 
-.lists_container{
+.list-display{
+  margin-left: 60px;
   float:left;
   display: inline;
   list-style-type: none;
   white-space: nowrap;
-  overflow-x: auto;
-  padding-left: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  overflow-y: hidden;
 };
 
 h4{
