@@ -17,7 +17,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     var $target = $(event.currentTarget);
     var title = $target.find('#list_title').val();
     var boardId = $target.data('id');
-    var ord = this.collection.length();
+    var ord = this.collection.length;
     this.collection.create({
       board_id: boardId,
       title: title,
