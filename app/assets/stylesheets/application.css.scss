@@ -60,6 +60,33 @@ section {
   font-size: 150%;  
 };
 
+.boards > li {
+  width: 25%;
+  float: left;
+  position: relative;
+  background-size: contain;
+  background-image: url('http://hasun.net/wp-content/uploads/2012/10/Chalk-Board.jpg');
+  a {
+    height: 200px;
+    margin: 0 16px 16px 0;
+    color: black;
+    display: block;
+    border-radius: 3px;
+    font-weight: 800;
+    box-sizing: normal;
+    position: relative;
+    svg {
+      margin: 0 auto; 
+      opacity: 0.9;
+    	width: 7.5em;
+      height: 1.5em;
+    	font: 900 300%/1.2 'Coming Soon', cursive;
+    }
+    text {fill: url(#wall4)}
+  };
+};
+
+
 
 #board_index {
   background-image: url("http://ilikewalls.com/wallpaper/3/10/simple-background-13.jpg");
@@ -70,8 +97,15 @@ ul {
 };
 
 .lists_container{
-  display: inline-block;
-  vertical-align: top;
+  float:left;
+  display: inline;
+  list-style-type: none;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  overflow-y: hidden;
 };
 
 h4{

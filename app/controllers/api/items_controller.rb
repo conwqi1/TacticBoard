@@ -1,6 +1,6 @@
 class Api::ItemsController < Api::ApiController
    def create
-     @items = current_checklist.card.new(item_params)
+     @items = current_checklist.items.new(item_params)
      if @items.save
        render json: @items
      else
@@ -35,7 +35,7 @@ class Api::ItemsController < Api::ApiController
        @item = Item.find(params[:id])
        @checklist = @item.checklist
      elsif params[:item]
-       @checklist = checklist.find(params[:item][:checklist_id])
+       @checklist = Checklist.find(params[:item][:checklist_id])
      end
    end
    
@@ -51,6 +51,6 @@ class Api::ItemsController < Api::ApiController
      current_list.board
    end
    def item_params
-     params.require(:item).permit(:done, :title, :checklist_id)
+     params.require(:item).permit(:done, :title, :ord, :checklist_id)
    end
 end

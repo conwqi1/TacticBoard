@@ -6,12 +6,22 @@
   <% boards.each(function (board) { %>
     <li>
       <a href="#/boards/<%= board.id %>">
-        <span class='shadow'></span>
-        <span class='details'> 
+        <div class='row'>
+        <div class="col-xs-9">
+           <svg>
+           <defs>
+           	<pattern id="wall4" patternUnits="userSpaceOnUse" width="400" height="400" >
+           		<image xlink:href="http://subtlepatterns.com/patterns/wall4.png" width="400" height="400" />
+           	</pattern>
+           </defs>
+           <text y="1.2em"><%= board.escape("title") %></text>
+           </svg>
+        </div>
+        <div class='col-xs-3'>
          <button class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-         </button>       
-          <%= board.escape("title") %>
-        </span>
+         </button> 
+       </div>
+       </div>
       </a>
     </li>
   <% }); %>
