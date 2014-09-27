@@ -56,7 +56,9 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.$el.html(renderContent);
     this.attachSubviews();
     this.$('.lists_container').sortable();
+    this.$('.lists_container').draggable();
      this.$('.cards-container').sortable();
+       this.$('.cards-container').draggable();
      this.$('.checklists-container').sortable();
     return this;
   },

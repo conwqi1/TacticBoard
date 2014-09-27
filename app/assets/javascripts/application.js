@@ -21,6 +21,7 @@
 //= require trello_video
 //= require jquery-ui/draggable
 //= require jquery-ui/sortable
+//= require jquery-ui/datepicker
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
