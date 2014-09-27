@@ -2,7 +2,6 @@ class Api::CheckListsController < Api::ApiController
   # before_action :require_board_member!
    def create
      @checklist = current_card.checklists.new(checklist_params)
-
      if @checklist.save
        render json: @checklist
      else

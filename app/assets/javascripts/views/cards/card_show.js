@@ -21,12 +21,11 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
     var title = 'Checklist';
     var cardId = $target.data('id');
     var ord = this.collection.length;
-    var checklist = new TrelloVideo.Models.Checklist({
+    this.collection.create({
       card_id: cardId,
       title: title,
       ord: ord
     });
-    this.collection.add(checklist);
   },
   
   
