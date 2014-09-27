@@ -8,6 +8,6 @@ TrelloVideo::Application.routes.draw do
     resources :lists, only: [:create, :update, :destroy]
     resources :cards, only: [:create, :show, :update, :destroy]
     resources :checklists, only: [:create, :show, :update, :destroy]
-    resources :items, only: [:create, :update, :destroy]
+    resources :items, only: [:create, :update, :show, :destroy]
   end
 end

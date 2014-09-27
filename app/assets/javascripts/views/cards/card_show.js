@@ -39,10 +39,7 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
 
   deleteChecklist: function(event){
     event.preventDefault();
-    var $target = $(event.currentTarget); 
-    var id = $target.data('id');
-    var model = this.collection.get(id);
-    model.destroy();
+    this.model.destroy();
   },
 
   removeChecklist: function(checklist){

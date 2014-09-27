@@ -1,5 +1,5 @@
 <!--checklist show template -->
-
+<li>
 <div class="checklist_block">
     <%= checklist.escape('title') %>
     <%= checklist.escape('id') %>
@@ -18,10 +18,10 @@
     </ul>
     
     
-    <form>
+    <form class="creatItem" data-id="<%= checklist.escape('id') %>">
       <div class="row">
         <div class="col-xs-8">
-          <input type="text" name="items[:title]">
+          <input type="text" name="items[:title]" id="item_title">
         </div>
         <div class="col-xs-4">
           <input type="submit" value="Add Item">
@@ -29,4 +29,4 @@
       </div>
     </form>
 </div>
-
+</li>
