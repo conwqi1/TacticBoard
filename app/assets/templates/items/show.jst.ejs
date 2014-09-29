@@ -1,3 +1,5 @@
 <li>
-  <input type="checkbox" name="items[done]" value="done"><%= item.escape('title') %>
+  <input class="itemCheckbox" type="checkbox" name="items[done]" value="done"><%= item.escape('title') %>
+  <button class="close deleteItem" data-id="<%= item.escape('id') %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
 </li>

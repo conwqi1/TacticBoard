@@ -1,12 +1,14 @@
 TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   template: JST['checklists/show'],
   
-  events: {"submit .creatItem":"createItem"},
+  events: {"submit .creatItem":"createItem",
+            "click .deleteItem":"deleteItem"},
   
   initialize: function(){
     this.collection = this.model.items();
     this.collection.each(this.addItem.bind(this));
     this.listenTo(this.model, 'sync', this.render);
+
     this.listenTo(this.collection, 'add', this.addItem);
     this.listenTo(this.collection, 'remove', this.removeItem);
   },
@@ -33,6 +35,23 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
     this.addSubview('.checklist-items', view);
   },
 
+  deleteItem: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    var id = $target.data('id');
+    var model = this.collection.get(id);
+    model.destroy();
+  },
+
+  removeItem: function(checklist){
+    var view = _.find(
+      this.subviews(".checklist-items"),
+      function(view){
+        return view.model === checklist;
+      });
+    this.removeSubview(".checklist-items", view)
+  },
+  
   render: function(){
     var renderContent = this.template({
       checklist: this.model
@@ -43,23 +62,6 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
     this.$('.checklist-items').disableSelection();
     return this;
   }, 
-  // deleteItem: function(event){
-  //   event.preventDefault();
-  //   var $target = $(event.currentTarget);
-  //   var id = $target.data('id');
-  //   var model = this.collection.get(id);
-  //   model.destroy();
-  // },
-  //
-  // removeItem: function(checklist){
-  //   var view = _.find(
-  //     this.subviews(".checklist-items"),
-  //     function(view){
-  //       return view.model === checklist;
-  //     });
-  //   this.removeSubview(".checklist-items", view)
-  // },
-
   
 
 });
