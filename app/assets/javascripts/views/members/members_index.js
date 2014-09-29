@@ -19,7 +19,9 @@ TrelloVideo.Views.MemberIndex = Backbone.View.extend({
   },
   
   createMember: function(){
-    
+    event.preventDefault();
+    $target = $(event.currentTarget);
+    var memberEmail = $target.find('')
   },
   
   deleteMember: function(){

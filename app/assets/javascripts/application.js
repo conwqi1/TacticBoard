@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap 
-//= require typeahead
+//= require typeahead.js
 //= require underscore
 //= require backbone
 //= backbone.modal-min.js

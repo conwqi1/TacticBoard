@@ -5,4 +5,7 @@
   </div>
 </div>
 
-<script>$(TrelloVideo.initialize)</script>
+<script>
+var USER_NAMES = JSON.parse('<%= User.all.pluck(:email).to_json.html_safe %>');
+  $(TrelloVideo.initialize)
+</script>
