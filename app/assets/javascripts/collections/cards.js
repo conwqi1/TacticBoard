@@ -23,4 +23,4 @@ TrelloVideo.Collections.Cards = Backbone.Collection.extend({
     return card;
   }
   
-})
+});

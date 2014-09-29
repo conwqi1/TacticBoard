@@ -1,0 +1,74 @@
+<!-- Modal -->
+<div class="modal fade" id="showItems<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+<!--header starts here -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">
+            <%= card.escape('title') %>
+          </h4>
+<!--date picker starts here -->
+          <div class="container">
+              <div class="row">
+                  <div class='col-sm-3'>
+                      <div class="form-group">
+                          <div class='input-group date' id='datetimepicker1'>
+                              <input type='text' class="form-control" />
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <script type="text/javascript">
+                      $(function () {
+                          $('#datetimepicker1').datetimepicker();
+                      });
+                  </script>
+              </div>
+          </div>
+<!--date pick ends here -->
+          <div class="duedate_container">
+             <!-- the duedate subview goes in here-->
+             duedate shows here
+          </div>
+        </div> 
+<!--header ends here -->
+      <div class="row">
+<!--left main index page starts here -->
+        <div class="col-xs-9">
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-xs-2">
+                <lable for="board_title">Description:</label>
+              </div>
+              <div class="col-xs-7">
+                <section><%= card.escape('description') %></section>
+              </div>
+            </div>
+          
+            <div class="row">
+              <ul class="col-xs-7 checklists-container">
+                 <!--check list items shold go here -->
+              </ul>
+            </div>
+          
+          </div>
+       </div>
+<!--left main index page ends here -->
+        
+<!--Right side bar page starts here -->
+       <div class="col-xs-3">
+          <div class="modal-sidebar">
+
+            <button type="button" data-id="<%= card.id %>" class="btn btn-default create_checklist">
+              Checklist
+            </button>
+          </div>
+      </div>
+<!--Right side bar page ends here -->
+      </div>
+    </div>
+  </div>
+</div>

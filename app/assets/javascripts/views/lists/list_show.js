@@ -60,4 +60,15 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     return this;
   },
   
+  // events: {
+  //   'sortreceive': 'receiveCard',
+  //   'sortremove': 'removeCard',
+  //   'sortstop': 'saveCards'
+  // },
+  
+  // saveCards: function(event) {
+  //   event.stopPropagation(); // Prevent list sorting listener from firing.
+  //   this.saveOrds();
+  // }
+  
 });

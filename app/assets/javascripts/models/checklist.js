@@ -1,4 +1,6 @@
 TrelloVideo.Models.Checklist = Backbone.Model.extend({
+  urlRoot: '/api/checklists',
+  
   items: function(){
     if (!this._checklists){
       this._checklists = new TrelloVideo.Collections.Items([], {checklist: this})

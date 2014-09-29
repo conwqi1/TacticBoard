@@ -16,3 +16,4 @@ TrelloVideo.Models.Card = Backbone.Model.extend({
     return response;
   }
 });
+

@@ -18,10 +18,11 @@
 //= require underscore
 //= require backbone
 //= backbone.modal-min.js
+//= require moment
+//= require bootstrap-datetimepicker
 //= require trello_video
 //= require jquery-ui/draggable
 //= require jquery-ui/sortable
-//= require jquery-ui/datepicker
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
@@ -37,9 +38,12 @@ $(function(){
   });
 });
 
-$(function(){
-  $('#card_block').sortable();
-});
+// $(function(){
+//   $('#card_block').sortable();
+// });
+
+
+
 
 // $(function(){
 //   $('').sortable({
