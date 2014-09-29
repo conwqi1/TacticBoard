@@ -22,6 +22,7 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
       title: title,
       ord: ord
     });
+    $target.find("#item_title").val('');
   },
   
   

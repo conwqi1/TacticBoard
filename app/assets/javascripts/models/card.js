@@ -3,7 +3,7 @@ TrelloVideo.Models.Card = Backbone.Model.extend({
 
   checklists: function () {
     if(!this._checklists) {
-      this._checklists = new TrelloVideo.Collections.Checklists([], {card: this });
+      this._checklists = new TrelloVideo.Collections.Checklists([], {card: this});
     }
     return this._checklists;
   },

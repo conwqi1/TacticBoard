@@ -7,18 +7,22 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'remove', this.removeChecklist);
   },
   
+  classNames: 'modal fade',
+  
   template: JST['cards/modal'],
   
   events: {"click .create_checklist":"createChecklist",
            "click .create_duedate":"createDueDate",
            "click .deleteCheckList":"deleteChecklist",
-           'click .close': 'dismiss',
+           'click .close_modal': 'dismiss',
            'click .card-modal-backdrop' : 'dismiss',
            'click .glyphicon-calendar': "createDueDate"},
            
   dismiss: function (event) {
     event.preventDefault();
     this.remove();
+    $('modal fade in').remove();
+    $('modal-backdrop fade in').remove();
   },
   
   createDueDate: function(event){
@@ -51,7 +55,10 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
 
   deleteChecklist: function(event){
     event.preventDefault();
-    this.model.destroy();
+    var $target = $(event.currentTarget);
+    var checklistId = $target.data('id');
+    var model = this.collection.get(checklistId);
+    model.destroy();
   },
 
   removeChecklist: function(checklist){
@@ -65,7 +72,7 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
   
 
   render: function () {
-    var content = this.template({ card : this.model });
+    var content = this.template({ card: this.model });
     this.$el.html(content);
     this.attachSubviews();
     return this;

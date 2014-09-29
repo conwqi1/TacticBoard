@@ -25,6 +25,8 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
       description: description,
       ord: ord
     });
+    $target.find('#card_title').val('');
+    $target.find('#card_description').val('');
   },
   
   deleteCard: function(event){
