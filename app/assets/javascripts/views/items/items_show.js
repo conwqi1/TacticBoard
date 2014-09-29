@@ -1,15 +1,26 @@
 TrelloVideo.Views.ItemShow = Backbone.CompositeView.extend({
   template: JST['items/show'],
   initialize: function(){
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync add remove', this.render)
   },
   
-  event:{
-    "click .itemCheckbox":"editDone"
+  events: {
+    "click .itemCheckbox" : "editDone",
+    "click .deleteItem" : "deleteItem"
   },
   
-  editDone: function(){
-    
+  editDone: function(event){
+    event.preventDefault();
+    if (this.model.escape("done") === true){
+      this.model.set({"done": false})
+    }else{
+      this.model.set({"done": true})
+    }
+    var test = this.model.escape("done");
+  },
+  
+  deleteItem: function(event){
+    this.model.destroy();
   },
   
   render: function(){
@@ -17,6 +28,7 @@ TrelloVideo.Views.ItemShow = Backbone.CompositeView.extend({
       item: this.model
     });
     this.$el.html(renderContent);
+    window.i = this;
     return this;
   },
   

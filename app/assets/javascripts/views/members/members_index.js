@@ -18,11 +18,19 @@ TrelloVideo.Views.MemberIndex = Backbone.View.extend({
     "click .deleteMember":"deleteMember"
   },
   
-  createMember: function(){
-    event.preventDefault();
-    $target = $(event.currentTarget);
-    var memberEmail = $target.find('')
-  },
+  // createMember: function(){
+  //   event.preventDefault();
+  //   $target = $(event.currentTarget);
+  //   var memberEmail = $target.find('#memberEmail').val();
+  //   var user_id = this.collection.get(memberEmail);
+  //   var board_id =
+  //   this.collection.create({
+  //     user_id: user_id
+  //     board_id: board_id
+  //   });
+  //   //clear the content
+  //   $target.find('#memberEmail').val('');
+  // },
   
   deleteMember: function(){
     

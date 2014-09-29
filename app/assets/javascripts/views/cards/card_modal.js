@@ -20,7 +20,8 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
            
   dismiss: function (event) {
     event.preventDefault();
-    this.remove();
+    // this.remove();
+    this.$el.hide();
     $('modal fade in').remove();
     $('modal-backdrop fade in').remove();
   },
@@ -75,6 +76,7 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
     var content = this.template({ card: this.model });
     this.$el.html(content);
     this.attachSubviews();
+    window.modal = this;
     return this;
   }
 });

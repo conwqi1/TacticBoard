@@ -15,6 +15,7 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
     this.modalView = this.modalView ||
       new TrelloVideo.Views.CardModal({ model: this.model });
     $('body').prepend(this.modalView.render().$el);
+    this.modalView.$el.show();
     this.modalView.delegateEvents();
   },
            
