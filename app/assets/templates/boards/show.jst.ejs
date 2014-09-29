@@ -6,20 +6,27 @@
       Add List
   </button> 
 
-</div>
-<!-- Sidebar -->
- 
-<!--sidebar ends here -->
-  <div id="sidebar-wrapper">
-      <ul id="sidebar_menu" class="sidebar-nav">
-           <li class="sidebar-brand"><a id="menu-toggle" href="#">Show Sidebar<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
-      </ul>
-      </div>
+<div class="boardShow-body">
+   <div class="wrapper">
 <!--page contents start here -->
 <div id="lists" class="lists_container">
-
+  
 </div>
 <!--page content ends here -->
+   </div>
+   
+   <section class="sidebar">
+      I am the content
+   </section>
+  
+   <section class="navbar" style="width: 200px">
+     <div id="open-sb" class="menu-icon menu-button menu-left">I am here</div>
+   </section>
+</div>
+
+
+
+
 
 <!-- Modal -->
   <div class="modal fade" id="listButton" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -47,3 +54,22 @@
       </div>
     </div>
   </div>
+  
+  
+  
+<script>
+$( ".sidebar" ).simpleSidebar({
+    settings: {
+      opener: "#open-sb",
+      wrapper: ".wrapper",
+      animation: {
+        easing: "easeOutQuint"
+      }
+    },
+    sidebar: {
+      align: "right",
+      width: 200,
+      closingLinks: 'a',
+    }
+  });
+</script>
