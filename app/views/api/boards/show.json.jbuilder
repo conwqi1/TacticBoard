@@ -1,6 +1,6 @@
 json.(@board, :id, :title)
-  json.members @board.members do |member|
-    json.(member, :id, :email)
+  json.memberships @board.board_memberships do |membership|
+    json.(membership, :user_id, :board_id, :id)
   end
   json.lists @board.lists do |list|
     json.(list, :id, :title, :ord)

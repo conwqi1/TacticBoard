@@ -8,11 +8,11 @@ TrelloVideo.Models.Board = Backbone.Model.extend({
     return this._lists;
   },
   
-  members:function(){
-    if(!this._members){
-      this._members = new TrelloVideo.Collections.Members([], {board: this})
+  memberships: function(){
+    if(!this._memberships){
+      this._memberships = new TrelloVideo.Collections.Memberships([], {board: this})
     }
-    return this._members;
+    return this._memberships;
   },
   
   parse: function (response) {
@@ -21,9 +21,9 @@ TrelloVideo.Models.Board = Backbone.Model.extend({
       delete response.lists;
     }
     
-    if(response.members){
-      this.members().set(response.members, {parse: true});
-      delete response.members;
+    if(response.memberships){
+      this.memberships().set(response.memberships, {parse: true});
+      delete response.memberships;
     }
 
     return response;

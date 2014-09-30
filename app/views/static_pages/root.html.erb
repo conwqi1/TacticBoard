@@ -6,6 +6,13 @@
 </div>
 
 <script>
-var USER_NAMES = JSON.parse('<%= User.all.pluck(:email).to_json.html_safe %>');
+  var User_Info = JSON.parse(
+    '<%=  Hash[User.all.pluck(:email, :id)].to_json.html_safe %>'
+  );
+
+  var USER_EMAILS = Object.keys(User_Info);
+
   $(TrelloVideo.initialize)
 </script>
+
+

@@ -1,6 +1,6 @@
 class Api::BoardMembershipsController < Api::ApiController
   def create
-    @membership = current_user.memberships.new(membership_params)
+    @membership = BoardMembership.new(membership_params)
     if @membership.save
       render json: @membership
     else
@@ -9,11 +9,12 @@ class Api::BoardMembershipsController < Api::ApiController
   end
   
   def show
-    @membership = current_user.memberships.find(params[:id])
+    @membership = current_user.board_memberships.find(params[:id])
+    render :show
   end
   
   def destroy
-    @membership = current_user.memeberships.find(params[:id])
+    @membership = current_user.board_memberships.find(params[:id])
     @membership.try(:destroy)
     render json: {}
   end
@@ -21,7 +22,7 @@ class Api::BoardMembershipsController < Api::ApiController
   private
   
   def membership_params
-    params.requrie(:board_membership).permit(:user_id, :board_id)
+    params.require(:board_membership).permit(:user_id, :board_id)
   end
   
 end

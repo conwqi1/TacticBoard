@@ -1,21 +1,21 @@
-TrelloVideo.Views.MemberShow = Backbone.CompositeView.extend({
-  template: JST['members/show'],
+TrelloVideo.Views.MembershipShow = Backbone.CompositeView.extend({
+  template: JST['memberships/show'],
   
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render)
   },
 
   events: {
-    "click .deleteMember":"deleteMember",
+    "click .deleteMember":"deleteMembership",
   },
 
-  deleteMember: function(event){
+  deleteMembership: function(event){
     this.model.destroy();
   },
   
   render: function(){
     var renderContent = this.template({
-      members: this.collection
+      membership: this.model
     });
     this.$el.html(renderContent);
     return this;

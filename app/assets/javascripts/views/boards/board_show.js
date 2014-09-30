@@ -8,42 +8,45 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "remove", this.removeList);
     this.listenTo(this.collection, "add", this.addList);
     
-    this.memberCollection = this.model.members();
-    this.memberCollection.each(this.addMember.bind(this));
-    this.listenTo(this.memberCollection, "add", this.addMember);
-    this.listenTo(this.memberCollection, "remove", this.removeMember);
+    this.membershipCollection = this.model.memberships();
+    this.membershipCollection.each(this.addMembership.bind(this));
+    this.listenTo(this.membershipCollection, "add", this.addMembership);
+    this.listenTo(this.membershipCollection, "remove", this.removeMembership);
   },
   
   events: { 
     "submit .createList":"createList",
     "click #delete_list":"deleteList",
-    "submit .createMember":"createMember",
+    "submit .createMember":"createMembership",
     },
     
-  createMember: function(event){
+  createMembership: function(event){
     event.preventDefault();
     $target = $(event.currentTarget);
     var memberEmail = $target.find('#memberEmail').val();
-    this.memberCollection.create({
-     email: memberEmail
+    var memberId = User_Info[memberEmail];
+    var boardId = this.model.id;
+    this.membershipCollection.create({
+     user_id: memberId,
+     board_id: boardId
     });
     $target.find('#memberEmail').val('');
    },
    
-  addMember: function(member){
-    var view = new TrelloVideo.Views.MemberShow({
-      model: member
+  addMembership: function(membership){
+    var view = new TrelloVideo.Views.MembershipShow({
+      model: membership,
     });
     this.addSubview('.membersContainer', view)
   },
    
-  removeMember: function(member){
+  removeMembership: function(membership){
     var view= _.find(
       this.subviews(".membersContainer"),
       function(view){
-        return view.model === member;
+        return view.model === membership;
       })
-    this.removeSubviews(".membersContainer". view)
+    this.removeSubview(".membersContainer", view)
   },
   
   createList: function(event){
@@ -90,12 +93,57 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderContent);
     this.attachSubviews();
-    this.$('.lists_container').sortable();
-    this.$('.lists_container').draggable();
-     this.$('.cards-container').sortable();
-       this.$('.cards-container').draggable();
-     this.$('.checklists-container').sortable();
+    this.setUpSortable();
+    this.setUpSidebar();
+    this.setUpTypeahead();
     return this;
   },
+  
+  setUpSortable: function() {
+    this.$('.lists_container').sortable();
+    this.$('.lists_container').draggable();
+    this.$('.cards-container').sortable();
+    this.$('.cards-container').draggable();
+    this.$('.checklists-container').sortable();
+     
+  },
+  
+  setUpTypeahead: function() {
+    var members = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      local: $.map( USER_EMAILS, function(userEmail) { 
+        return { value: userEmail}; 
+      })
+    });
+    members.initialize();
+    this.$('#bloodhound .typeahead').typeahead({
+      hint: true,
+      highlight: true,
+      minLength: 1
+    },
+    {
+      name: 'members',
+      displayKey: 'value',
+      source: members.ttAdapter()
+    });
+  },
+  
+  setUpSidebar: function() {
+    this.$( ".sidebar" ).simpleSidebar({
+        settings: {
+          opener: "#open-sb",
+          wrapper: ".wrapper",
+          animation: {
+            easing: "easeOutQuint"
+          }
+        },
+        sidebar: {
+          align: "right",
+          width: 200,
+          closingLinks: 'a',
+        }
+      });
+   }
   
 });
