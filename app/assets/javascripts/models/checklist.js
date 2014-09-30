@@ -3,7 +3,7 @@ TrelloVideo.Models.Checklist = Backbone.Model.extend({
   
   percentComplete: function(){
     var done = this.items().where({done: true}).length;
-    var completeness = (done / this.items().length) * 100;
+    var completeness = Math.floor((done / this.items().length) * 100);
     return completeness;
   },
   

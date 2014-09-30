@@ -7,10 +7,13 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   initialize: function(){
     this.collection = this.model.items();
     this.collection.each(this.addItem.bind(this));
-    this.listenTo(this.model, 'sync add remove', this.render);
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'add remove sync', this.render);
     this.listenTo(this.collection, 'add', this.addItem);
     this.listenTo(this.collection, 'remove', this.removeItem);
   },
+  
+
   
   createItem: function(event){
     event.preventDefault();
