@@ -9,12 +9,12 @@ class Api::BoardMembershipsController < Api::ApiController
   end
   
   def show
-    @membership = current_user.board_memberships.find(params[:id])
+    @membership = BoardMembership.find(params[:id])
     render :show
   end
   
   def destroy
-    @membership = current_user.board_memberships.find(params[:id])
+    @membership =BoardMembership.find(params[:id])
     @membership.try(:destroy)
     render json: {}
   end

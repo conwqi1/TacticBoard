@@ -39,15 +39,6 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.membersContainer', view)
   },
-   
-  removeMembership: function(membership){
-    var view= _.find(
-      this.subviews(".membersContainer"),
-      function(view){
-        return view.model === membership;
-      })
-    this.removeSubview(".membersContainer", view)
-  },
   
   createList: function(event){
     event.preventDefault();
@@ -85,6 +76,15 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
         return view.model === list;
       });
     this.removeSubview("#lists", view)
+  },
+  
+  removeMembership: function(membership){
+    var view= _.find(
+      this.subviews(".membersContainer"),
+      function(view){
+        return view.model === membership;
+      })
+    this.removeSubview(".membersContainer", view)
   },
   
   render: function(){
