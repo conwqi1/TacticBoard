@@ -9,5 +9,6 @@ TrelloVideo::Application.routes.draw do
     resources :cards, only: [:create, :show, :update, :destroy]
     resources :checklists, only: [:create, :show, :update, :destroy]
     resources :items, only: [:create, :update, :show, :destroy]
+    resources :board_memberships, only: [:create, :show, :destroy]
   end
 end

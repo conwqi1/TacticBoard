@@ -7,10 +7,44 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "remove", this.removeList);
     this.listenTo(this.collection, "add", this.addList);
+    
+    this.memberCollection = this.model.members();
+    this.memberCollection.each(this.addMember.bind(this));
+    this.listenTo(this.memberCollection, "add", this.addMember);
+    this.listenTo(this.memberCollection, "remove", this.removeMember);
   },
   
-  events: {"submit .createList":"createList",
-           "click #delete_list":"deleteList"},
+  events: { 
+    "submit .createList":"createList",
+    "click #delete_list":"deleteList",
+    "submit .createMember":"createMember",
+    },
+    
+  createMember: function(event){
+    event.preventDefault();
+    $target = $(event.currentTarget);
+    var memberEmail = $target.find('#memberEmail').val();
+    this.memberCollection.create({
+     email: memberEmail
+    });
+    $target.find('#memberEmail').val('');
+   },
+   
+  addMember: function(member){
+    var view = new TrelloVideo.Views.MemberShow({
+      model: member
+    });
+    this.addSubview('.membersContainer', view)
+  },
+   
+  removeMember: function(member){
+    var view= _.find(
+      this.subviews(".membersContainer"),
+      function(view){
+        return view.model === member;
+      })
+    this.removeSubviews(".membersContainer". view)
+  },
   
   createList: function(event){
     event.preventDefault();

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   
   has_many :boards
-  
+  has_many :board_memberships
   attr_reader :password
   after_initialize :ensure_session_token
   

@@ -16,7 +16,7 @@
 //= require typeahead.js
 //= require underscore
 //= require backbone
-//= backbone.modal-min.js
+//= require backbone.modal-min.js
 //= require moment
 //= require bootstrap-datetimepicker
 //= require trello_video
@@ -37,16 +37,20 @@ $(function(){
   });
 });
 
-// $(function(){
-//   $('#card_block').sortable();
-// });
+$('#demo-password').on('keyup', function (e) {
+    var $input = $(this);
+    var val = $.trim($input.val());
+    $input.removeClass("invalid");
+
+    if (e.which !== 13 || !val) {
+        return;
+    }
+
+    if (val != "password") {
+        $input.select();   
+        $input.addClass("invalid");
+    }
+});
 
 
-
-
-// $(function(){
-//   $('').sortable({
-//
-//   });
-// });
 
