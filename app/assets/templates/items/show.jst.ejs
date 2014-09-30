@@ -1,5 +1,6 @@
 <li>
-  <input class="itemCheckbox" type="checkbox" name="items[done]"   <%= item.get('done') ? 'checked' : '' %>><%= item.escape('title') %>
+  <input class="itemCheckbox" type="checkbox" name="items[done]" <%= item.get('done') ? 'checked' : '' %>>
+  <%= item.escape('title') %>
   <button class="close deleteItem"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
   </button>
 </li>

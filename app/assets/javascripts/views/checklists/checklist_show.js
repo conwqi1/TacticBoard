@@ -6,14 +6,10 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   
   initialize: function(){
     this.collection = this.model.items();
-    window.c = this.collection;
     this.collection.each(this.addItem.bind(this));
-    this.listenTo(this.model, 'sync', this.render);
-
+    this.listenTo(this.model, 'sync add remove', this.render);
     this.listenTo(this.collection, 'add', this.addItem);
     this.listenTo(this.collection, 'remove', this.removeItem);
-    window.checklist = this;
-    console.log('initializing checklist')
   },
   
   createItem: function(event){
@@ -32,17 +28,13 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   
   
   addItem: function(item){
-    console.log('adding item')
     var view = new TrelloVideo.Views.ItemShow({
       model: item
     });
     this.addSubview('.checklist-items', view);
   },
 
-
-
   removeItem: function(checklist){
-    console.log('removing item')
     var view = _.find(
       this.subviews(".checklist-items"),
       function(view){
@@ -51,11 +43,12 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
     this.removeSubview(".checklist-items", view)
   },
   
+
+  
   render: function(){
     var renderContent = this.template({
       checklist: this.model
     });
-    console.log('rendering checklist')
     this.$el.html(renderContent);
     this.attachSubviews();
     this.$('.checklist-items').sortable();
