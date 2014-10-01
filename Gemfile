@@ -40,7 +40,7 @@ gem 'opentok'
 # gem 'debugger', group: [:development, :test]
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
-
+gem "font-awesome-rails"
 
 gem 'newrelic_rpm'
 

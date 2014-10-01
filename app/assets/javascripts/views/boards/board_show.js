@@ -1,6 +1,6 @@
 TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/show'],
-  
+  className: "content-container-lists",
   initialize: function(){
     this.collection = this.model.lists();
     this.collection.each(this.addList.bind(this));
@@ -82,16 +82,16 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     var view = new TrelloVideo.Views.ListShow({
         model: list
     });
-    this.addSubview('#lists', view);
+    this.addSubview('.lists_container', view);
   },
   
   removeList: function(list){
     var view = _.find( 
-      this.subviews("#lists"),
+      this.subviews(".lists_container"),
       function(view){
         return view.model === list;
       });
-    this.removeSubview("#lists", view)
+    this.removeSubview(".lists_container", view)
   },
   
   removeMembership: function(membership){

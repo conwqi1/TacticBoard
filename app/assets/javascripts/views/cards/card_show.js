@@ -1,4 +1,6 @@
 TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
+  className: "content-container-cardshow",
+  tagName: "li",
   initialize: function(){
     this.collection = this.model.checklists();
     this.listenTo(this.model, 'sync', this.render);

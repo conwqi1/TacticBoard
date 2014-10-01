@@ -1,6 +1,6 @@
 TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   template: JST['boards/index'],
-  
+  className: "content-container-boards",
   initialize: function(){
     this.listenTo(this.collection, 'sync add destroy', this.render);
   },

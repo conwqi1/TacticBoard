@@ -15,20 +15,29 @@
  */
 
 @import "bootstrap-sprockets";
-
+@import "font-awesome";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+//---------------intropage style----------------------
 .SignOn {
   font-weight: bold;
   font-size: 200%;
   text-align: center;
   padding-bottom: 2%;
   
-}
-
-.col-xs-12 {
-  padding-top: 2%;
 }
 
 .jumbotron{
@@ -57,36 +66,67 @@
   font-size: 200%;
 };
 
-section {
-  font-size: 150%;  
-};
-
 ul {
   list-style: none;
 };
 
-h4{
-  display: inline-block;
-  vertical-align:top;
-};
-
 //-----index page style----------------------------------
-.content-container{
-  height: 100%;
-  background-image:url("http://www.komar.de/fileadmin/media/Fototapeten_Bilder/8-727_Stone_Wall_hd.jpg");
-  background-size: cover;
+.content-container-boards{
+  height: 700px;
+  background-image:url("http://images.fineartamerica.com/images-medium-large/red-brick-wall-jera-sky.jpg");
+  background-size: contain;
+  clear: both;
+  overflow: auto;
 }
 
-
-.image { 
-   position: relative; 
-   width: 100%; 
+.boards-index-title > button {
+  display: inline-block;
 }
 
-a { 
-   position: absolute; 
-   top: 100px; 
-   left: 0; 
-   width: 100%; 
+.boards-container > li {
+  margin: 0 16px 16px 0;
+  width: 25%;
+  height: 120px;
+  float: left;
+//  display: block;
+  background-size: 100%;
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/6d/._Possibly_an_arithmatic_problem_on_blackboard_in_schoolroom._%22BAH_1917%22_-_NARA_-_297408.jpg");
+  a {
+    height: 90px;
+    color: #f6f6f6;
+    font-size: 26px;
+    padding: 25px 25px;
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    box-sizing: normal;
+    position: relative;
+  }
 }
+
+.lists_container > li {
+  vertical-align: top;
+  background-color:#939393;
+  margin: 0 16px 16px 0;
+  width: 25%;
+  display: inline-block;
+  border-radius:5px;
+  button{
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+  }
+}
+
+.list-show-header{
+  margin: 0 auto;
+}
+
+.cards_container > li {
+  width: 90%;
+  margin: 0 auto;
+  display:block;
+}
+
 

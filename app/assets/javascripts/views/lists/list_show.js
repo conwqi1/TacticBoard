@@ -1,5 +1,7 @@
 TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   template: JST ['lists/show'],
+  className: "content-container-cards",
+  tagName: "li",
   initialize: function(){
     this.collection = this.model.cards();
     this.collection.each(this.addCard.bind(this));

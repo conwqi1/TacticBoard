@@ -1,5 +1,4 @@
-<div class="content-container board_show">
-  <div class='boardShow_header'>
+<div class='board-show-header'>
     <h4><%= board.escape('title') %></h4>
     <!--Add List button starts here -->
     <!-- Button trigger modal -->
@@ -12,31 +11,29 @@
          <span class="glyphicon glyphicon-list"></span>
       </div>
     </section>
-  </div>
-
-  <div class="boardShow-body">
-     <div class="wrapper">
-        <div id="lists" class="lists_container">
-            <!--page contents goes in here -->
-        </div>
-     </div>
-   
-     <section class="sidebar" style="background-color: blue">
-        <div id="bloodhound"> 
-          <form class="createMember">
-              <input class="typeahead" type="text" placeholder="Search Member via Email" id="memberEmail">
-              <input type="submit" value="add Memeber">
-          </form>
-          <button>call</button>
-  <!--members shows here -->
-          <div class="membersContainer">
-
-          </div>
-  <!--members ends here -->
-        </div>
-     </section>
-  </div>
 </div>
+
+<div class="boardShow-body">
+  <ul class="lists_container">
+      <!--page contents goes in here -->
+  </ul>
+
+ <section class="sidebar" style="background-color: blue">
+    <div id="bloodhound"> 
+      <form class="createMember">
+          <input class="typeahead" type="text" placeholder="Search Member via Email" id="memberEmail">
+          <input type="submit" value="add Memeber">
+      </form>
+      <button>call</button>
+<!--members shows here -->
+      <ul class="membersContainer">
+
+      </ul>
+<!--members ends here -->
+    </div>
+ </section>
+</div>
+
 
 
 
