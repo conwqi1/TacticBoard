@@ -70,11 +70,14 @@ ul {
   list-style: none;
 };
 
+body{
+  background-image:url("background.jpg");
+  background-size: cover;
+}
+
 //-----index page style----------------------------------
 .content-container-boards{
   height: 700px;
-  background-image:url("http://images.fineartamerica.com/images-medium-large/red-brick-wall-jera-sky.jpg");
-  background-size: contain;
   clear: both;
   overflow: auto;
 }
@@ -88,7 +91,6 @@ ul {
   width: 25%;
   height: 120px;
   float: left;
-//  display: block;
   background-size: 100%;
   background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/6d/._Possibly_an_arithmatic_problem_on_blackboard_in_schoolroom._%22BAH_1917%22_-_NARA_-_297408.jpg");
   a {
@@ -103,6 +105,21 @@ ul {
     box-sizing: normal;
     position: relative;
   }
+}
+
+.board-show-header {
+  h4{
+    display: inline-block;
+  }
+  section{
+    display:inline-block;
+    float:right;
+    margin-right:20px;
+    span.glyphicon-list {
+        font-size: 1.5em;
+    }
+  }
+  margin-bottom: 2%;
 }
 
 .lists_container > li {
@@ -127,6 +144,12 @@ ul {
   width: 90%;
   margin: 0 auto;
   display:block;
+}
+
+.sidebar{
+  background-color:#f0f0f0;
+  border-top-left-radius: 3px;
+  box-shadow:0 0 6px rgba(0,0,0,.4);
 }
 
 

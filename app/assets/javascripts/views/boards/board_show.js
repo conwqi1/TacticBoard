@@ -44,7 +44,8 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     var boardId = this.model.id;
     this.membershipCollection.create({
      user_id: memberId,
-     board_id: boardId
+     board_id: boardId,
+     animate: true
     });
     $target.find('#memberEmail').val('');
    },

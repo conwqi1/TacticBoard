@@ -10,6 +10,7 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
       boards: this.collection
     });
     this.$el.html(renderContent);
+    this.$('.boards-container').sortable();
     return this;
   },
   
