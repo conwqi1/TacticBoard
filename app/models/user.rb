@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
     self.session_token
   end
   
+  # def all_boards
+  #   Board.joins(:board_memberships)
+  #         .where(
+  #         "boards.user_id = :user_id OR board_memberships.user_id = :user_id",
+  #         {user_id: self.id})
+  # end
+  
   private
   
   def ensure_session_token

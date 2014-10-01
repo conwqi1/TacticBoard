@@ -1,39 +1,41 @@
-<div class='boardShow_header'>
-  <h4><%= board.escape('title') %></h4>
-  <!--Add List button starts here -->
-  <!-- Button trigger modal -->
-  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#listButton">
-      Add List
-  </button> 
+<div class="content-container board_show">
+  <div class='boardShow_header'>
+    <h4><%= board.escape('title') %></h4>
+    <!--Add List button starts here -->
+    <!-- Button trigger modal -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#listButton">
+        Add List
+    </button> 
   
-  <section class="navbar">
-    <div id="open-sb" class="menu-icon menu-button menu-left">
-       <span class="glyphicon glyphicon-list"></span>
-    </div>
-  </section>
-</div>
-
-<div class="boardShow-body">
-   <div class="wrapper">
-      <div id="lists" class="lists_container">
-          <!--page contents goes in here -->
+    <section class="navbar">
+      <div id="open-sb" class="menu-icon menu-button menu-left">
+         <span class="glyphicon glyphicon-list"></span>
       </div>
-   </div>
-   
-   <section class="sidebar" style="background-color: blue">
-      <div id="bloodhound"> 
-        <form class="createMember">
-            <input class="typeahead" type="text" placeholder="Search Member via Email" id="memberEmail">
-            <input type="submit" value="add Memeber">
-        </form>
-        <button>call</button>
-<!--members shows here -->
-        <div class="membersContainer">
+    </section>
+  </div>
 
+  <div class="boardShow-body">
+     <div class="wrapper">
+        <div id="lists" class="lists_container">
+            <!--page contents goes in here -->
         </div>
-<!--members ends here -->
-      </div>
-   </section>
+     </div>
+   
+     <section class="sidebar" style="background-color: blue">
+        <div id="bloodhound"> 
+          <form class="createMember">
+              <input class="typeahead" type="text" placeholder="Search Member via Email" id="memberEmail">
+              <input type="submit" value="add Memeber">
+          </form>
+          <button>call</button>
+  <!--members shows here -->
+          <div class="membersContainer">
+
+          </div>
+  <!--members ends here -->
+        </div>
+     </section>
+  </div>
 </div>
 
 

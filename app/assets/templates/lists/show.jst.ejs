@@ -1,23 +1,24 @@
-<!--list show template -->
-<div id="list_block">
-<div data-list-id="<%= list.id %>">
-  <h4><%= list.escape('title') %></h4>
-<!--delete list button starts here -->
-  <button class="close" id="delete_list" data-id="<%= list.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+<div class="content-container list_show">
+  <!--list show template -->
+  <div id="list_block">
+  <div data-list-id="<%= list.id %>">
+    <h4><%= list.escape('title') %></h4>
+  <!--delete list button starts here -->
+    <button class="close" id="delete_list" data-id="<%= list.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+  </div>
+
+  <ul class="cards-container">
+  <!--all subviews goes here -->
+  </ul>
+
+  <!--add card button starts here-->
+  
+  <!-- Button trigger modal -->
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cardButton<%= list.id %>">
+      Add card
   </button>
 </div>
-
-<ul class="cards-container">
-<!--all subviews goes here -->
-</ul>
-
-<!--add card button starts here-->
-  
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cardButton<%= list.id %>">
-    Add card
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="cardButton<%= list.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

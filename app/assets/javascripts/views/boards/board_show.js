@@ -18,7 +18,23 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     "submit .createList":"createList",
     "click #delete_list":"deleteList",
     "submit .createMember":"createMembership",
+    "sortstop": "saveListOrd"
     },
+    
+   saveListOrd: function (event) {
+    event.stopPropagation();
+    var itemElements = this.$('#lists');
+    var idAttribute = 'id';
+    var collection = this.collection;
+
+    itemElements.each(function(index, element) {
+      var $itemElement = $(element);
+      var itemId = $itemElement.data(idAttribute);
+      var item = collection.get(itemId);
+
+      item.save({ord: index});
+    });
+   },
     
   createMembership: function(event){
     event.preventDefault();

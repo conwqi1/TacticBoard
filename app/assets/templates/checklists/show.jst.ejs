@@ -1,35 +1,31 @@
+<div class="content-container checklistlist_show">
 <!--checklist show template -->
-<li>
-<div class="checklist_block">
-    <%= checklist.escape('title') %>
-    <button class="close deleteCheckList" data-id="<%= checklist.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-    </button>
+  <li>
+  <div class="checklist_block">
+      <%= checklist.escape('title') %>
+      <button class="close deleteCheckList" data-id="<%= checklist.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+      </button>
     
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="<%=checklist.percentComplete()%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=checklist.percentComplete()%>%;">
-        <%=checklist.percentComplete()%>%
-      </div>
-    </div>
-    
-    
-    <ul class="checklist-items">
-    <!--all item subviews goes here -->
-    </ul>
-    
-    
-    <form class="creatItem" data-id="<%= checklist.escape('id') %>">
-      <div class="row">
-        <div class="col-xs-8">
-          <input type="text" name="items[:title]" id="item_title">
-        </div>
-        <div class="col-xs-4">
-          <input type="submit" value="Add Item">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="<%=checklist.percentComplete()%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=checklist.percentComplete()%>%;">
+          <%=checklist.percentComplete()%>%
         </div>
       </div>
-    </form>
+    
+      <ul class="checklist-items">
+      <!--all item subviews goes here -->
+      </ul>
+    
+      <form class="creatItem" data-id="<%= checklist.escape('id') %>">
+        <div class="row">
+          <div class="col-xs-8">
+            <input type="text" name="items[:title]" id="item_title">
+          </div>
+          <div class="col-xs-4">
+            <input type="submit" value="Add Item">
+          </div>
+        </div>
+      </form>
+  </div>
+  </li>
 </div>
-</li>
-
-<script>
-
-</script>

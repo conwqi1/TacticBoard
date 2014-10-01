@@ -1,36 +1,31 @@
-<div class='boards-index-title'>
-  <h3>My Boards</h3>
-  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="add_board_button">
-      Add Board
-  </button>
+<div class="content-container">
+  <div class='boards-index-title'>
+    <h3>My Boards</h3>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="add_board_button">
+        Add Board
+    </button>
+  </div>
+
+  <ul class='boards'>
+    <% boards.each(function (board) { %>
+      <li>
+        <div class='row image'>
+        <img src="http://hasun.net/wp-content/uploads/2012/10/Chalk-Board.jpg" alt="" />
+         <div class='col-xs-9'>
+            <a href="#/boards/<%= board.id %>">        
+             <text><%= board.escape("title") %></text>
+            </a>
+         </div>
+            <div class='col-xs-3'>
+             <button class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+             </button> 
+            </div>
+         </div>   
+      </li>
+    <% }); %>
+  </ul>
   
 </div>
-
-<ul class='boards'>
-  <% boards.each(function (board) { %>
-    <li>
-      <a href="#/boards/<%= board.id %>">
-        <div class='row'>
-        <div class="col-xs-9">
-           <svg>
-           <defs>
-           	<pattern id="wall4" patternUnits="userSpaceOnUse" width="400" height="400" >
-           		<image xlink:href="http://subtlepatterns.com/patterns/wall4.png" width="400" height="400" />
-           	</pattern>
-           </defs>
-           <text y="1.2em"><%= board.escape("title") %></text>
-           </svg>
-        </div>
-        <div class='col-xs-3'>
-         <button class="close" id="delete_board" data-id="<%= board.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-         </button> 
-       </div>
-       </div>
-      </a>
-    </li>
-  <% }); %>
-</ul>
-  
 
 <!--modal starts here -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
@@ -65,6 +60,6 @@
         </form>
       </div>
     </div>
-  </div>
+</div>
   
   

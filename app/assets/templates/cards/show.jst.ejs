@@ -1,14 +1,15 @@
-<!--card show template -->
-<div class="panel panel-default card_block">
-  <div class="panel-body">
-    <a href="#" class="card_link" data-toggle="modal" data-target="#showItems<%= card.id %>">
-      <%= card.escape('title') %>
-    </a>
-    <button class="close" id="deleteCard" data-id="<%= card.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-    </button>
+<div class="content-container card_show">
+  <!--card show template -->
+  <div class="panel panel-default card_block">
+    <div class="panel-body">
+      <a href="#" class="card_link" data-toggle="modal" data-target="#showItems<%= card.id %>">
+        <%= card.escape('title') %>
+      </a>
+      <button class="close" id="deleteCard" data-id="<%= card.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+      </button>
+    </div>
   </div>
 </div>
-
 
 
 
