@@ -20,7 +20,6 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
            
   dismiss: function (event) {
     event.preventDefault();
-    // this.remove();
     this.$el.hide();
     $('modal fade in').remove();
     $('modal-backdrop fade in').remove();

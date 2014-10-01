@@ -75,6 +75,15 @@ body{
   background-size: cover;
 }
 
+h4{
+  display:inline-block;
+}
+
+.close{
+  float:right;
+  background-color:white;
+}
+
 //-----index page style----------------------------------
 .content-container-boards{
   height: 700px;
@@ -84,6 +93,8 @@ body{
 
 .boards-index-title > button {
   display: inline-block;
+  margin-bottom: 2%;
+  margin-left: 2%;
 }
 
 .boards-container > li {
@@ -107,49 +118,88 @@ body{
   }
 }
 
-.board-show-header {
-  h4{
-    display: inline-block;
-  }
-  section{
-    display:inline-block;
-    float:right;
-    margin-right:20px;
-    span.glyphicon-list {
-        font-size: 1.5em;
+.content-container-lists{
+ // position:relative;
+  .board-show-header {
+    h4{
+      display: inline-block;
     }
-  }
-  margin-bottom: 2%;
+    section{
+      display:inline-block;
+      float:right;
+      margin-right:20px;
+      span.glyphicon-list {
+          font-size: 1.5em;
+      }
+    }
+    margin-bottom: 2%;
+//    position: absolute;
+//    top: 80px;
+  } 
 }
-
 .lists_container > li {
   vertical-align: top;
   background-color:#939393;
   margin: 0 16px 16px 0;
-  width: 25%;
+  width: 28%;
   display: inline-block;
   border-radius:5px;
+  padding: 0;
+  .cards_container{
+    width: 100%;
+    background-color:red;
+  }
   button{
     margin: 0 auto;
     width: 30%;
-    text-align: center;
+  }
+  .list-show-header{
+    margin: 0 auto;
+    width: 90%;
+  }
+  ul{
+    padding: 0;
+  }
+  .cards-container > li {
+    background-image:url("floor.jpg");
+    background-size: cover;
+    width: 95%;
+    margin: 0 auto;
+    display:block;
+    .panel {
+      height:100%;
+      margin-bottom:0;
+    }
+//    .panel-body{
+//      width: 100%;
+//      heigth:90%;
+//    }
   }
 }
 
-.list-show-header{
-  margin: 0 auto;
-}
-
-.cards_container > li {
-  width: 90%;
-  margin: 0 auto;
-  display:block;
-}
-
 .sidebar{
+  width:28%;
   background-color:#f0f0f0;
   border-top-left-radius: 3px;
   box-shadow:0 0 6px rgba(0,0,0,.4);
+  .createMember{
+    margin-bottom: 8%;
+  }
+  .twitter-typeahead{
+    width:80%;
+  }
+  .add_button{
+    width:18%;
+  }
+  
+  ul {
+    padding:0;
+  }
+  .membersContainer > li {
+    width:100%;
+    margin: 0 auto;
+  }
 }
+
 
 

@@ -23,15 +23,11 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     
    saveListOrd: function (event) {
     event.stopPropagation();
-    var itemElements = this.$('#lists');
-    var idAttribute = 'id';
-    var collection = this.collection;
-
-    itemElements.each(function(index, element) {
+    this.$('.lists_container').each(function(index, element) {
       var $itemElement = $(element);
-      var itemId = $itemElement.data(idAttribute);
-      var item = collection.get(itemId);
-
+      var itemId = $itemElement.data('id');
+      var item = this.collection.get(itemId);
+    debugger
       item.save({ord: index});
     });
    },
@@ -47,7 +43,6 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
      board_id: boardId,
      animate: true
     });
-    $target.find('#memberEmail').val('');
    },
    
   addMembership: function(membership){
@@ -69,6 +64,9 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
       ord: ord
     });
     $target.find('#list_title').val('')
+    $('#listButton').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
   },
   
   deleteList: function(event){
@@ -157,7 +155,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
         },
         sidebar: {
           align: "right",
-          width: 200,
+          width: 300,
           closingLinks: 'a',
         }
       });

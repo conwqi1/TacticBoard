@@ -28,6 +28,9 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
       title: title
      });
     $target.find('#board_title').val('') 
+    $('#myModal').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
   },
   
   deleteBoard: function(event){

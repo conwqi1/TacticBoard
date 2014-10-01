@@ -1,6 +1,6 @@
 TrelloVideo.Views.MembershipShow = Backbone.CompositeView.extend({
   template: JST['memberships/show'],
-  
+  tagName: "li",
   initialize: function(){
     this.listenTo(this.model, 'sync', this.render)
   },
