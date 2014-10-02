@@ -20,6 +20,11 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require trello_video
+//= require util.js
+//= require movingObject.js
+//= require asteroid.js
+//= require game.js
+//= require gameView.js
 //= require jquery-ui/
 //= require jquery.simplesidebar.min.js
 //= require_tree ../templates

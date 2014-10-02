@@ -32,6 +32,11 @@
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
 //---------------intropage style----------------------
+
+.navbar {
+    border-radius: 0px;
+  }
+  
 .SignOn {
   font-weight: bold;
   font-size: 200%;
@@ -70,9 +75,11 @@ ul {
   list-style: none;
 };
 
-body{
+body, html{
   background-image:url("background.jpg");
   background-size: cover;
+  z-index: 1;
+  height:100%
 }
 
 h4{
@@ -100,10 +107,10 @@ h4{
 .boards-container > li {
   margin: 0 16px 16px 0;
   width: 25%;
-  height: 120px;
+  height: 180px;
   float: left;
   background-size: 100%;
-  background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/6d/._Possibly_an_arithmatic_problem_on_blackboard_in_schoolroom._%22BAH_1917%22_-_NARA_-_297408.jpg");
+  background-image: url("blackboard.jpg");
   a {
     height: 90px;
     color: #f6f6f6;
@@ -132,9 +139,7 @@ h4{
           font-size: 1.5em;
       }
     }
-    margin-bottom: 2%;
-//    position: absolute;
-//    top: 80px;
+    margin-bottom: 1%;
   } 
 }
 .lists_container > li {

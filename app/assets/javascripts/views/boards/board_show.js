@@ -12,15 +12,32 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.membershipCollection.each(this.addMembership.bind(this));
     this.listenTo(this.membershipCollection, "add", this.addMembership);
     this.listenTo(this.membershipCollection, "remove", this.removeMembership);
+    
   },
   
   events: { 
     "submit .createList":"createList",
     "click #delete_list":"deleteList",
     "submit .createMember":"createMembership",
-    "sortstop": "saveListOrd"
+    "sortstop": "saveListOrd",
+    "click #show-ball":"showBalls"
     },
-    
+     
+   showBalls: function(){
+     if(!this.$el.find('canvas').is('canvas')){
+       this.$el.find(".boardShow-body").prepend('<canvas></canvas>')
+       var canvasEl = this.$el.find("canvas")[0];
+       canvasEl.width = Asteroids.Game.DIM_X;
+       canvasEl.height = Asteroids.Game.DIM_Y;
+       var ctx = canvasEl.getContext("2d");
+       var game = new Asteroids.Game();
+       new Asteroids.GameView(game, ctx).start();
+     }else{
+       this.$el.find('canvas').remove();
+     }
+
+   },
+   
    saveListOrd: function (event) {
     event.stopPropagation();
     this.$('.lists_container').children().each(function(index, element) {
