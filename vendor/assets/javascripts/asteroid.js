@@ -8,7 +8,6 @@
     options.pos = options.pos || options.game.randomPosition();
     options.radius = Asteroid.RADIUS;
     options.vel = options.vel || Asteroids.Util.randomVec(Asteroid.SPEED);
-    
     Asteroids.MovingObject.call(this, options);
   };
 

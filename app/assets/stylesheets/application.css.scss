@@ -131,6 +131,7 @@ canvas{
 .content-container-lists{
  // position:relative;
   .board-show-header {
+    margin-left: 4.5%;
     z-index:2;
     position:relative;
     h4{
@@ -153,6 +154,8 @@ canvas{
   }
 }
 .lists_container > li {
+  z-index:3;
+//  position:relative;
   vertical-align: top;
   background-color:#939393;
   margin: 0 16px 16px 0;
@@ -164,9 +167,9 @@ canvas{
     width: 100%;
     background-color:red;
   }
-  button{
-    margin: 0 auto;
-    width: 30%;
+  .add-card{
+    text-align: center;;
+    width: 100%;
   }
   .list-show-header{
     margin: 0 auto;
@@ -188,17 +191,26 @@ canvas{
     margin: 0 auto;
     display:block;
     .panel {
+      opacity: 0.7;
       height:100%;
       margin-bottom:0;
+      .panel-body{
+        text-align:center;
+        .card_link{
+          font-size:150%;
+        }
+      }
     }
-//    .panel-body{
-//      width: 100%;
-//      heigth:90%;
-//    }
   }
 }
 
+.modal-backdrop{
+  z-index:1;
+}
+
+
 .sidebar{
+  z-index:500;
   width:28%;
   background-color:#f0f0f0;
   border-top-left-radius: 3px;
@@ -221,6 +233,21 @@ canvas{
     margin: 0 auto;
   }
 }
+.checklists-container{
+  width:100%;
+  li{
+    width:100%;
+  }
+}
 
+.modal-title{
+  margin-left: 5%;
+}
 
-
+.checklist-items{
+  padding: 0;
+  li{
+  width: 95%;
+  margin:0 auto;
+  }
+}

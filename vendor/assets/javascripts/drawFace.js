@@ -1,8 +1,5 @@
-function imgToCanvas(){
-	var c = document.getElementById('c');
-	c.height = 100;
-	c.width = 100;
-	var cx = c.getContext('2d');
+(function () {
+function imgToCanvas(cx){
 	cx.fillStyle="rgba(37,37,47,1)";
 	cx.fillRect(0,0,1,1);
 	cx.fillStyle="rgba(25,25,35,1)";
@@ -19018,3 +19015,4 @@ function imgToCanvas(){
 	cx.fillStyle="rgba(252,255,255,1)";
 	cx.fillRect(99,99,1,1);
 }
+})();

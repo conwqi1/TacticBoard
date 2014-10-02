@@ -5,9 +5,11 @@
 <!--header starts here -->
         <div class="modal-header">
           <button type="button" class="close close_modal" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+ 
           <h4 class="modal-title" id="myModalLabel">
             <%= card.escape('title') %>
           </h4>
+   
 <!--date picker starts here -->
           <div class="container">
               <div class="row">
@@ -28,10 +30,6 @@
               </div>
           </div>
 <!--date pick ends here -->
-          <div class="duedate_container">
-             <!-- the duedate subview goes in here-->
-             duedate shows here
-          </div>
         </div> 
 <!--header ends here -->
       <div class="row">
@@ -40,12 +38,6 @@
           <div class="modal-body">
 
             <div class="row">
-              <div class="col-xs-2">
-                <lable for="board_title">Description:</label>
-              </div>
-              <div class="col-xs-7">
-                <section><%= card.escape('description') %></section>
-              </div>
               <ul class="col-xs-7 checklists-container">
                  <!--check list items shold go here -->
               </ul>

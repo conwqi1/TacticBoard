@@ -7,6 +7,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "remove", this.removeList);
     this.listenTo(this.collection, "add", this.addList);
+
     
     this.membershipCollection = this.model.memberships();
     this.membershipCollection.each(this.addMembership.bind(this));
@@ -30,12 +31,16 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
        canvasEl.width = Asteroids.Game.DIM_X;
        canvasEl.height = Asteroids.Game.DIM_Y;
        var ctx = canvasEl.getContext("2d");
+       var imageObj = new Image();
+       imageObj.onload = function(){
+         ctx.drawImage(imageObj, 25, 25);
+       }
+       imageObj.src = "assets/jeffrey-fiddler.jpg";
        var game = new Asteroids.Game();
        new Asteroids.GameView(game, ctx).start();
      }else{
        this.$el.find('canvas').remove();
      }
-
    },
    
    saveListOrd: function (event) {
@@ -102,6 +107,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
         model: list
     });
     this.addSubview('.lists_container', view);
+
   },
   
   removeList: function(list){
