@@ -16,7 +16,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   
   events: {"submit #createCard":"createCard",
             "click #deleteCard":"deleteCard",
-             "sortstop": "saveCardOrd"},
+            "sortstop": "saveCardOrd"},
             
   saveCardOrd: function (event) {
    event.stopPropagation();
@@ -29,6 +29,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
    this.subviews()[".cards-container"]=_.sortBy(this.subviews()[".cards-container"], function(subview){
      return subview.model.attributes.ord;
    });
+   this.collection.sort();
   },
   
   createCard: function(event){
@@ -81,6 +82,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderContent);
     this.attachSubviews();
+    this.$('.cards-container').sortable();
     return this;
   },
   

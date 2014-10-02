@@ -25,7 +25,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
      
    showBalls: function(){
      if(!this.$el.find('canvas').is('canvas')){
-       this.$el.find(".boardShow-body").prepend('<canvas></canvas>')
+       this.$el.prepend('<canvas></canvas>')
        var canvasEl = this.$el.find("canvas")[0];
        canvasEl.width = Asteroids.Game.DIM_X;
        canvasEl.height = Asteroids.Game.DIM_Y;
@@ -49,6 +49,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.subviews()[".lists_container"]=_.sortBy(this.subviews()[".lists_container"], function(subview){
       return subview.model.attributes.ord;
     });
+    this.collection.sort();
    },
     
   createMembership: function(event){
@@ -135,9 +136,9 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
   
   setUpSortable: function() {
     this.$('.lists_container').sortable();
-    this.$('.lists_container').draggable();
+    // this.$('.lists_container').draggable();
     this.$('.cards-container').sortable();
-    this.$('.cards-container').draggable();
+    // this.$('.cards-container').draggable();
   },
   
   setUpTypeahead: function() {

@@ -7,7 +7,6 @@
     this.asteroids = [];
     this.bullets = [];
     this.ships = [];
-
     this.addAsteroids();
   };
 
@@ -15,7 +14,7 @@
   Game.DIM_X = 1000;
   Game.DIM_Y = 600;
   Game.FPS = 32;
-  Game.NUM_ASTEROIDS = 10;
+  Game.NUM_ASTEROIDS = 20;
 
   Game.prototype.add = function (object) {
     if (object instanceof Asteroids.Asteroid) {
@@ -49,7 +48,6 @@
     this.allObjects().forEach(function (obj1) {
       game.allObjects().forEach(function (obj2) {
         if (obj1 == obj2) {
-          // don't allow self-collision
           return;
         }
 
@@ -62,9 +60,6 @@
 
   Game.prototype.draw = function (ctx) {
     ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
-    ctx.fillStyle = Game.BG_COLOR;
-    ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
-
     this.allObjects().forEach(function (object) {
       object.draw(ctx);
     });

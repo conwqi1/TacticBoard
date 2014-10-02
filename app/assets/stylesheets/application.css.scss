@@ -124,10 +124,15 @@ h4{
     position: relative;
   }
 }
-
+canvas{
+  z-index:1;
+  position:absolute;
+}  
 .content-container-lists{
  // position:relative;
   .board-show-header {
+    z-index:2;
+    position:relative;
     h4{
       display: inline-block;
     }
@@ -140,7 +145,12 @@ h4{
       }
     }
     margin-bottom: 1%;
-  } 
+  }
+   
+  .boardShow-body{
+    z-index:2;
+    position:relative;
+  }
 }
 .lists_container > li {
   vertical-align: top;
