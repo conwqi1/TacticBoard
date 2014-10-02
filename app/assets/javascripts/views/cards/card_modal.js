@@ -16,8 +16,23 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
            "click .deleteCheckList":"deleteChecklist",
            'click .close_modal': 'dismiss',
            'click .card-modal-backdrop' : 'dismiss',
-           'click .glyphicon-calendar': "createDueDate"},
+           'click .glyphicon-calendar': "createDueDate",
+           "sortstop": "saveChecklistOrd"},
            
+  saveChecklistOrd: function (event) {
+   event.stopPropagation();
+   this.$('.checklists-container').children().each(function(index, element) {
+     var $itemElement = $(element);
+     var itemId = $itemElement.data('checklist-id');
+     var item = this.collection.get(itemId);
+     item.save({ord: index});
+   }.bind(this));
+     this.subviews()[".checklists-container"]=_.sortBy(this.subviews()[".checklists-container"], function(subview){
+       return subview.model.attributes.ord;
+     });
+
+  },
+  
   dismiss: function (event) {
     event.preventDefault();
     this.$el.hide();
@@ -75,7 +90,7 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
     var content = this.template({ card: this.model });
     this.$el.html(content);
     this.attachSubviews();
-    window.modal = this;
+    this.$('.checklists-container').sortable();
     return this;
   }
 });

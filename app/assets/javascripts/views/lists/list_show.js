@@ -2,6 +2,10 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   template: JST ['lists/show'],
   className: "content-container-cards",
   tagName: "li",
+  attributes: function(){
+    return {"data-list-id": this.model.id}
+  },
+  
   initialize: function(){
     this.collection = this.model.cards();
     this.collection.each(this.addCard.bind(this));
@@ -11,7 +15,21 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   },
   
   events: {"submit #createCard":"createCard",
-            "click #deleteCard":"deleteCard"},
+            "click #deleteCard":"deleteCard",
+             "sortstop": "saveCardOrd"},
+            
+  saveCardOrd: function (event) {
+   event.stopPropagation();
+   this.$('.cards-container').children().each(function(index, element) {
+     var $itemElement = $(element);
+     var itemId = $itemElement.data('card-id');
+     var item = this.collection.get(itemId);
+     item.save({ord: index});
+   }.bind(this));
+   this.subviews()[".cards-container"]=_.sortBy(this.subviews()[".cards-container"], function(subview){
+     return subview.model.attributes.ord;
+   });
+  },
   
   createCard: function(event){
     event.preventDefault();

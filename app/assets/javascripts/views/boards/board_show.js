@@ -23,12 +23,14 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     
    saveListOrd: function (event) {
     event.stopPropagation();
-    this.$('.lists_container').each(function(index, element) {
+    this.$('.lists_container').children().each(function(index, element) {
       var $itemElement = $(element);
-      var itemId = $itemElement.data('id');
+      var itemId = $itemElement.data('list-id');
       var item = this.collection.get(itemId);
-    debugger
       item.save({ord: index});
+    }.bind(this));
+    this.subviews()[".lists_container"]=_.sortBy(this.subviews()[".lists_container"], function(subview){
+      return subview.model.attributes.ord;
     });
    },
     
@@ -119,8 +121,6 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     this.$('.lists_container').draggable();
     this.$('.cards-container').sortable();
     this.$('.cards-container').draggable();
-    this.$('.checklists-container').sortable();
-     
   },
   
   setUpTypeahead: function() {

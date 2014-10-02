@@ -1,5 +1,10 @@
 TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   template: JST['checklists/show'],
+  className: "content-container-checklistShow list-group-item",
+  tagName: "li",
+  attributes: function(){
+    return {"data-checklist-id": this.model.id}
+  },
   
   events: {"submit .creatItem":"createItem",
             "click .deleteItem":"deleteItem"},
@@ -12,9 +17,7 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addItem);
     this.listenTo(this.collection, 'remove', this.removeItem);
   },
-  
 
-  
   createItem: function(event){
     event.preventDefault();
     var $target = $(event.currentTarget);

@@ -1,9 +1,7 @@
 TrelloVideo.Collections.Checklists = Backbone.Collection.extend({
-  // comparator: function(checklist) {
-  //   return checklist.get('ord')
-  // },
   model: TrelloVideo.Models.Checklist,
   url: "/api/checklists",
+  comparator: 'ord',
   
   initialize: function(models, options){
     this.card = options.card;
