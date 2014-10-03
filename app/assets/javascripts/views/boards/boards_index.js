@@ -10,9 +10,10 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
       boards: this.collection
     });
     this.$el.html(renderContent);
-    this.$('.boards-container').sortable();
+    this.$('.boards-container').children().draggable();
     return this;
   },
+  
   
   events: {
     "submit #createBoard": "addBoard",

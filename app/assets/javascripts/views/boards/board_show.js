@@ -21,8 +21,13 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     "click #delete_list":"deleteList",
     "submit .createMember":"createMembership",
     "sortstop": "saveListOrd",
+    // "sortstart":"showFace",
     "click #show-ball":"showBalls"
     },
+    
+   showFace: {
+     
+   },
      
    showBalls: function(){
      if(!this.$el.find('canvas').is('canvas')){
@@ -31,11 +36,11 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
        canvasEl.width = Asteroids.Game.DIM_X;
        canvasEl.height = Asteroids.Game.DIM_Y;
        var ctx = canvasEl.getContext("2d");
-       var imageObj = new Image();
-       imageObj.onload = function(){
-         ctx.drawImage(imageObj, 25, 25);
-       }
-       imageObj.src = "assets/jeffrey-fiddler.jpg";
+       // var imageObj = new Image();
+       // imageObj.onload = function(){
+       //   ctx.drawImage(imageObj, 25, 25);
+       // }
+       // imageObj.src = "assets/jeffrey-fiddler.jpg";
        var game = new Asteroids.Game();
        new Asteroids.GameView(game, ctx).start();
      }else{
@@ -142,9 +147,8 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
   
   setUpSortable: function() {
     this.$('.lists_container').sortable();
-    // this.$('.lists_container').draggable();
     this.$('.cards-container').sortable();
-    // this.$('.cards-container').draggable();
+    this.$('.cards-container').draggable();
   },
   
   setUpTypeahead: function() {
