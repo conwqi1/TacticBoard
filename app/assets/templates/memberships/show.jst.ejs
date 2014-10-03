@@ -1,8 +1,8 @@
-<div class="panel panel-default">
+<div class="panel panel-default members">
   <div class="panel-body">
-     <%= membership.findEmailById(membership.get("user_id"))%>
+     <h3><%= membership.findEmailById(membership.get("user_id"))%></h3>
     <button class="close deleteMember"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
     </button>
-    <button class="btn btn-default btn-lg">Call</button>
+    <!-- <button class="btn btn-default btn-lg">Call</button> -->
   </div>
 </div>

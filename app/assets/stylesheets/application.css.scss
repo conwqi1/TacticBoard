@@ -270,6 +270,7 @@ canvas{
   
   ul {
     padding:0;
+    margin-top:50%;
   }
   .membersContainer > li {
     width:100%;
@@ -292,5 +293,19 @@ canvas{
   li{
   width: 95%;
   margin:0 auto;
+  }
+}
+
+.members{
+  background-image:url("Tar_Heel_Basketball_Court.jpg");
+  background-size: cover;
+  margin-bottom:5%;
+  .panel-body{
+    background-color:#939393;
+    opacity: 0.7;
+    h3{
+      font-weight:bold;
+      color:black;
+    }
   }
 }
