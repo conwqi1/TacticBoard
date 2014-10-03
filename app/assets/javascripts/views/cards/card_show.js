@@ -2,7 +2,10 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
   className: "content-container-cardshow list-group-item",
   tagName: "li",
   attributes: function(){
-    return {"data-card-id": this.model.id}
+    return {
+      "data-card-id": this.model.id,
+      id: "oneCard"
+    }
   },
   initialize: function(){
     this.collection = this.model.checklists();
@@ -13,7 +16,25 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
   
   template: JST['cards/show'],
   
-  events: {"click .card_link":"showModal"},
+  events: {"click .card_link":"showModal",
+            "mouseenter .card_block":"zoomIn",
+            "mouseleave .card_block": "zoomOut"},
+  
+  zoomIn:function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget); 
+    $target.animate({ margin: -10, width: "+=20", height: "+=20" });
+    var font = $target.find('.card_link');
+    font.animate({fontSize: "+=100%"});
+  },
+  
+  zoomOut:function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget); 
+    $target.animate({ margin: 0, width: "-=20", height: "-=20" });
+    var font = $target.find('.card_link');
+    font.animate({fontSize: "-=100%"});
+  },
   
   showModal: function () {
     this.model.fetch();
