@@ -1,6 +1,9 @@
 TrelloVideo.Views.ItemShow = Backbone.CompositeView.extend({
   className: "content-container-item list-group-item",
   tagName: "li",
+  attributes: function(){
+    return {"data-card-id": this.model.id}
+  },
   template: JST['items/show'],
   initialize: function(){
     this.colletion

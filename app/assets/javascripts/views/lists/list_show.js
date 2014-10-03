@@ -17,9 +17,14 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   events: {"submit #createCard":"createCard",
             "sortstop": "saveCardOrd",
             "click #delete_list":"deleteList",
-            "click #hideShow":"hideShow"
+            "click #hideShow":"hideShow",
+            // "start":"showFace"
            },
            
+   showFace: {
+
+   },
+   
   hideShow: function(event){
     event.preventDefault();
     var $target = $(event.currentTarget);

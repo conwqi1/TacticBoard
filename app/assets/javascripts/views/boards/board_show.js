@@ -24,10 +24,6 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     // "sortstart":"showFace",
     "click #show-ball":"showBalls"
     },
-    
-   showFace: {
-     
-   },
      
    showBalls: function(){
      if(!this.$el.find('canvas').is('canvas')){

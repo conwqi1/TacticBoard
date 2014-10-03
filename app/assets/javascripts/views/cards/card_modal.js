@@ -1,5 +1,6 @@
 TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
   initialize: function () {
+    this.index = 1
     this.collection = this.model.checklists();
     this.collection.each(this.addChecklist.bind(this));
     this.listenTo(this.model, 'sync', this.render);
@@ -47,11 +48,10 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
   addDueDate: function(checklist){
     
   },
-  
   createChecklist: function(event){
     event.preventDefault();
     var $target = $(event.currentTarget);
-    var title = 'Checklist';
+    var title = 'Line-up'+this.index;
     var cardId = $target.data('id');
     var ord = this.collection.length;
     this.collection.create({
@@ -59,6 +59,7 @@ TrelloVideo.Views.CardModal = Backbone.CompositeView.extend({
       title: title,
       ord: ord
     });
+    this.index++;
   },
   
   addChecklist: function(checklist){

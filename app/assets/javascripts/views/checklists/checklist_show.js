@@ -7,7 +7,8 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
   },
   
   events: {"submit .creatItem":"createItem",
-            "click .deleteItem":"deleteItem"},
+            "click .deleteItem":"deleteItem",
+            "sortstop": "saveCardOrd"},
   
   initialize: function(){
     this.collection = this.model.items();
@@ -57,8 +58,8 @@ TrelloVideo.Views.ChecklistShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderContent);
     this.attachSubviews();
-    this.$('.checklist-items').sortable();
-    this.$('.checklist-items').disableSelection();
+    // this.$('.checklist-items').sortable();
+    // this.$('.checklist-items').disableSelection();
     return this;
   }, 
   
