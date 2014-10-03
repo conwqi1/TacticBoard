@@ -16,8 +16,15 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   
   events: {"submit #createCard":"createCard",
             "sortstop": "saveCardOrd",
-            "click #delete_list":"deleteList"
+            "click #delete_list":"deleteList",
+            "click #hideShow":"hideShow"
            },
+           
+  hideShow: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    $target.parent().parent().find(".cards-container").toggle()
+  },
            
   deleteList: function(event){
     event.preventDefault();
@@ -58,17 +65,8 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     $target.find('#card_title').val('');
     $target.find('#card_description').val('');
     $('#cardButton'+listId).modal('hide');
-    // $('body').removeClass('modal-open');
-    // $('.modal-backdrop').remove();
+    $(".cards-container").show()
   },
-  
-  // deleteCard: function(event){
-  //   event.preventDefault();
-  //   var $target = $(event.currentTarget);
-  //   var id = $target.data('id');
-  //   var model = this.collection.get(id);
-  //   model.destroy();
-  // },
   
   addCard: function(card){
     var view = new TrelloVideo.Views.CardShow({
@@ -95,7 +93,4 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     this.$('.cards-container').sortable();
     return this;
   },
-  
-
-  
 });

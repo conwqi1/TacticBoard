@@ -2,6 +2,9 @@
 <div class="list-show-header" data-list-id="<%= list.id %>">
   <h4><%= list.escape('title') %></h4>
 <!--delete list button starts here -->
+
+  <span id="hideShow" class="glyphicon glyphicon-chevron-down"></span> 
+
   <button class="close" id="delete_list" data-id="<%= list.id %>"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
   </button>
 </div>
