@@ -143,7 +143,9 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
   
   setUpSortable: function() {
     this.$('.lists_container').sortable();
-    this.$('.cards-container').sortable();
+    this.$('.cards-container').sortable({
+      placeholder: "ui-sortable-placeholder" 
+    });
     // this.$('#oneCard').sortable({
     //   connectWith: ".cards-container"
     // );

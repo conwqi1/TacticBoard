@@ -153,6 +153,14 @@ canvas{
     position:relative;
   }
 }
+
+.ui-sortable-placeholder {  
+    border: 3px dashed #aaa;  
+    height: 85px;  
+    width: 344px;  
+    background: #ccc;  
+}  
+
 .lists_container > li {
   z-index:3;
 //  position:relative;
