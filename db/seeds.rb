@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 guest = User.create(email: 'guest@gmail.com', password: 'password')
+guest1 = User.create(email: 'Jordan@gmail.com', password: 'password')
+guest2 = User.create(email: 'JamesWorthy@gmail.com', password: 'password')
+guest3 = User.create(email: 'JohnHenson@gmail.com', password: 'password')
+guest4 = User.create(email: 'JimmyJoe@gmail.com', password: 'password')
 guestBoard1 = guest.boards.create(title: 'vs: Dookies')
 guestBoard2 = guest.boards.create(title: 'vs: Wake Forest')
 guestBoard3 = guest.boards.create(title: 'vs: NC State')

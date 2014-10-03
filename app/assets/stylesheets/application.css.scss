@@ -106,7 +106,7 @@ ul {
 body, html{
   background-image:url("background.jpg");
   background-size: cover;
-  z-index: 1;
+  q-index: 1;
   height:100%
 }
 
@@ -160,14 +160,14 @@ h4{
   }
 }
 canvas{
-  z-index:1;
+  q-index:1;
   position:absolute;
 }  
 .content-container-lists{
  // position:relative;
   .board-show-header {
     margin-left: 4.5%;
-    z-index:2;
+    q-index:2;
     position:relative;
     h4{
       display: inline-block;
@@ -184,7 +184,7 @@ canvas{
   }
    
   .boardShow-body{
-    z-index:2;
+    q-index:2;
     position:relative;
   }
 }
@@ -197,8 +197,8 @@ canvas{
 }  
 
 .lists_container > li {
-  z-index:3;
-//  position:relative;
+  q-index:3;
+  position:relative;
   vertical-align: top;
   background-color:#939393;
   margin: 0 16px 16px 0;
@@ -248,12 +248,12 @@ canvas{
 }
 
 .modal-backdrop{
-  z-index:1;
+  q-index:1;
 }
 
 
 .sidebar{
-  z-index:5000;
+  q-index:5000;
   width:28%;
   background-color:#f0f0f0;
   border-top-left-radius: 3px;
