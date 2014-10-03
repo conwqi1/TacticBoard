@@ -17,7 +17,21 @@ TrelloVideo.Views.BoardsIndex = Backbone.View.extend({
   
   events: {
     "submit #createBoard": "addBoard",
-    "click #delete_board":"deleteBoard"
+    "click #delete_board":"deleteBoard",
+    "mouseenter .ui-draggable":"swing",
+    "mouseleave .ui-draggable":"stop"
+  },
+  
+  swing: function(event){
+    event.preventDefault()
+    var $target = $(event.currentTarget);
+    $target.addClass('animated swing')
+  },
+  
+  stop: function(event){
+    event.preventDefault()
+    var $target = $(event.currentTarget);
+    $target.removeClass('animated swing')
   },
   
   addBoard: function(event){
