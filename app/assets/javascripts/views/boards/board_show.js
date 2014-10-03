@@ -50,6 +50,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
       var $itemElement = $(element);
       var itemId = $itemElement.data('list-id');
       var item = this.collection.get(itemId);
+       debugger
       item.save({ord: index});
     }.bind(this));
     this.subviews()[".lists_container"]=_.sortBy(this.subviews()[".lists_container"], function(subview){

@@ -1,12 +1,6 @@
 TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
   className: "content-container-cardshow list-group-item",
   tagName: "li",
-  attributes: function(){
-    return {
-      "data-card-id": this.model.id,
-      id: "oneCard"
-    }
-  },
   initialize: function(){
     this.collection = this.model.checklists();
     this.listenTo(this.model, 'sync', this.render);
@@ -59,10 +53,11 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
       card: this.model
     });
     this.$el.html(renderContent);
-    // this.attachSubviews();
+    this.$el.attr("data-card-id", this.model.id)
     return this;
   },
 });
+
 
 
 

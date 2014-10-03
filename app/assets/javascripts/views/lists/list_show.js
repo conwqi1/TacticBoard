@@ -2,9 +2,6 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   template: JST ['lists/show'],
   className: "content-container-cards",
   tagName: "li",
-  attributes: function(){
-    return {"data-list-id": this.model.id}
-  },
   
   initialize: function(){
     this.collection = this.model.cards();
@@ -96,6 +93,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     this.$el.html(renderContent);
     this.attachSubviews();
     this.$('.cards-container').sortable();
+    this.$el.attr("data-list-id", this.model.id)
     return this;
   },
 });
