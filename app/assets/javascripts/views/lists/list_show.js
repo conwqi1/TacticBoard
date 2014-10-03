@@ -25,7 +25,7 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     var $target = $(event.currentTarget);
     var listBox = $target.parent().parent();
     listBox.addClass('animated hinge');
-    setTimeout(function(){this.model.destroy()}.bind(this),3000);
+    setTimeout(function(){this.model.destroy()}.bind(this),2000);
     clearTimeout();
   },
             

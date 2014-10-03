@@ -97,6 +97,7 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     $('#listButton').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
+    $('.content-container-cards').addClass("animated rotateIn")
   },
 
   addList: function(list){
