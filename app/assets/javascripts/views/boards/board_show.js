@@ -98,21 +98,12 @@ TrelloVideo.Views.BoardShow = Backbone.CompositeView.extend({
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
   },
-  
-  deleteList: function(event){
-    event.preventDefault();
-    var $target = $(event.currentTarget); 
-    var id = $target.data('id');
-    var model = this.collection.get(id);
-    model.destroy();
-  },
 
   addList: function(list){
     var view = new TrelloVideo.Views.ListShow({
         model: list
     });
     this.addSubview('.lists_container', view);
-
   },
   
   removeList: function(list){

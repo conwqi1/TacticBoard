@@ -16,8 +16,18 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   
   events: {"submit #createCard":"createCard",
             "click #deleteCard":"deleteCard",
-            "sortstop": "saveCardOrd"
+            "sortstop": "saveCardOrd",
+            "click #delete_list":"deleteList"
            },
+           
+  deleteList: function(event){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    var listBox = $target.parent().parent();
+    listBox.addClass('animated hinge');
+    setTimeout(function(){this.model.destroy()}.bind(this),3000);
+    clearTimeout();
+  },
             
   saveCardOrd: function (event) {
    event.stopPropagation();
