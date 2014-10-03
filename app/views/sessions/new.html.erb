@@ -1,24 +1,38 @@
-<div class="SignOn">
-  <div class="row">
-    <div class= "col-xs-6 col-xs-offset-3">
-      <h2>Welcome back to TacticBoard</h2>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class= "col-xs-6 col-xs-offset-3">
-      <form action="/session" method="post">
-        <%= auth_token_input %>
+
+
+<section class="content-section video-section">
+  <div class="pattern-overlay">
+  <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=vhgYXcpGB5k',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="SignOn">
+              <div class="row">
+                <div class= "col-xs-6 col-xs-offset-3">
+                  <h2>Welcome back to TacticBoard</h2>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class= "col-xs-6 col-xs-offset-3">
+                  <form action="/session" method="post">
+                    <%= auth_token_input %>
   
-        <label for="user_emal">Email:</label><br>
-        <input type="text" name="user[email]" id="user_email"><br>
+                    <label for="user_emal"><h3>Email:</h3></label><br>
+                    <input type="text" name="user[email]" id="user_email"><br>
   
-        <label for="user_password">Password:</label><br>
-        <input type="password" name="user[password]" id="user_password"><br>
-        <br>
-        <input type="submit" value="Sign In" class="btn btn-primary">
-        <input type="submit" value="Sign In As Guest" id="sign_in_as_guest" class="btn btn-primary">
-      </form>
+                    <label for="user_password"><h3>Password:</h3></label><br>
+                    <input type="password" name="user[password]" id="user_password"><br>
+                    <br>
+                    <input type="submit" value="Sign In" class="btn btn-primary">
+                    <input type="submit" value="Sign In As Guest" id="sign_in_as_guest" class="btn btn-primary">
+                  </form>
+                </div>
+              </div>
+            </div>
+	     </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

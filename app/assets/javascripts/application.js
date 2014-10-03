@@ -18,6 +18,7 @@
 //= require backbone
 //= require backbone.modal-min.js
 //= require moment
+//= require jquery.mb.YTPlayer.js
 //= require bootstrap-datetimepicker
 //= require trello_video
 //= require util.js
@@ -42,6 +43,10 @@ $(function(){
   });
 });
 
+$(function(){
+  $(".player").mb_YTPlayer();
+});
+
 $('#demo-password').on('keyup', function (e) {
     var $input = $(this);
     var val = $.trim($input.val());
@@ -52,7 +57,7 @@ $('#demo-password').on('keyup', function (e) {
     }
 
     if (val != "password") {
-        $input.select();   
+        $input.select();
         $input.addClass("invalid");
     }
 });
