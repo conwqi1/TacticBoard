@@ -18,7 +18,16 @@ TrelloVideo.Views.CardShow = Backbone.CompositeView.extend({
   
   events: {"click .card_link":"showModal",
             "mouseenter .card_block":"zoomIn",
-            "mouseleave .card_block": "zoomOut"},
+            "mouseleave .card_block": "zoomOut",
+            "click #deleteCard":"deleteCard",},
+  
+  deleteCard:function(){
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    $target.addClass('animated zoomOutRight');
+    setTimeout(function(){this.model.destroy()}.bind(this),1000);
+    clearTimeout();
+  },
   
   zoomIn:function(event){
     event.preventDefault();

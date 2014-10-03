@@ -15,7 +15,6 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
   },
   
   events: {"submit #createCard":"createCard",
-            "click #deleteCard":"deleteCard",
             "sortstop": "saveCardOrd",
             "click #delete_list":"deleteList"
            },
@@ -63,13 +62,13 @@ TrelloVideo.Views.ListShow = Backbone.CompositeView.extend({
     // $('.modal-backdrop').remove();
   },
   
-  deleteCard: function(event){
-    event.preventDefault();
-    var $target = $(event.currentTarget); 
-    var id = $target.data('id');
-    var model = this.collection.get(id);
-    model.destroy();
-  },
+  // deleteCard: function(event){
+  //   event.preventDefault();
+  //   var $target = $(event.currentTarget);
+  //   var id = $target.data('id');
+  //   var model = this.collection.get(id);
+  //   model.destroy();
+  // },
   
   addCard: function(card){
     var view = new TrelloVideo.Views.CardShow({
